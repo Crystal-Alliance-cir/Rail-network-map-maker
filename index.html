@@ -92,6 +92,32 @@ small.mixed{color:var(--ink3);font-size:11px;margin-left:2px}
 .numctl .seg button{flex:1 1 auto;min-width:0;padding:0 8px}
 .memb{display:flex;flex-direction:column;gap:4px;max-height:150px;overflow:auto;padding:2px 0}
 .memb .chk{display:flex;align-items:center;gap:6px;margin:0}
+.wr{display:flex;gap:6px}
+.wr button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:4px 6px;border:1.5px solid var(--rule2);border-radius:8px;background:var(--field)}
+.wr button:hover{border-color:var(--ink)}
+.wr button[aria-pressed="true"]{background:var(--hub);color:var(--hub-ink);border-color:var(--hub)}
+.lanefig{max-width:100%;overflow:auto;padding:4px;border:1.5px solid var(--rule2);border-radius:10px;background:var(--field)}
+.lanefig svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.lanefig [data-lane]:focus-visible{outline:2px solid var(--guide)}
+.al{display:flex;gap:6px}
+.al button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;padding:4px 2px;font-size:11px;line-height:1.1;border:1.5px solid var(--rule2);border-radius:8px;background:var(--field)}
+.al button:hover{border-color:var(--ink)}
+.al button[aria-pressed="true"]{background:var(--hub);color:var(--hub-ink);border-color:var(--hub)}
+.al.v{flex-direction:column;gap:4px;width:136px}
+.al.v button{flex-direction:row;justify-content:flex-start;gap:8px;min-height:36px;padding:3px 8px;font-size:12px}
+.aic{width:34px;height:26px;flex:none;display:block}
+.modename{font-size:12.5px;color:var(--ink2)}
+.modename b{color:var(--ink);font-size:14px}
+#modeRange{width:100%;margin:6px 0 2px;accent-color:var(--hub)}
+.modeticks{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);margin:0 2px 6px}
+.modeticks span.on{color:var(--ink);font-weight:700}
+@media (pointer:coarse){#modeRange{height:34px}}
+.cxrow{display:grid;grid-template-columns:22px minmax(0,1fr);gap:4px 6px;align-items:center;margin:4px 0 8px}
+.cxrow .seg{grid-column:1/-1}
+.cxno{width:20px;height:20px;border-radius:50%;background:var(--guide);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.cxname{display:flex;align-items:center;gap:6px;font-size:12.5px;min-width:0}
+.wsamp{display:inline-block;font-size:13px;line-height:1}
+.wsamp.v{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:1px}
 .vseg{display:grid;grid-template-columns:1fr;gap:3px;width:112px}
 .vseg button{height:26px;border:1.5px solid var(--rule2);border-radius:8px;background:var(--field)}
 .vseg button:hover{border-color:var(--ink)}
@@ -116,7 +142,15 @@ small.mixed{color:var(--ink3);font-size:11px;margin-left:2px}
 .qrbox canvas{width:min(80vw,380px);height:auto;aspect-ratio:1;image-rendering:pixelated;background:#fff;border-radius:6px;border:1px solid var(--rule2)}
 .qrstat{text-align:center;color:var(--ink2);font-size:12.5px;margin:4px 0}
 .qrctl{display:flex;justify-content:center;gap:8px;margin:6px 0}
-.qropt{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:6px 8px;align-items:center;font-size:12.5px;margin-top:8px}
+.qropt{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;font-size:12.5px;margin-top:8px}
+.row.gridrow{grid-template-columns:96px minmax(0,1fr)}
+.row.gridrow .seg{min-width:0}
+.row.gridrow .seg button{min-width:0;padding:0 2px;min-height:36px}
+@media (pointer:coarse){.row.gridrow .seg button{min-height:44px}}
+@media (max-width:480px){.row.gridrow{grid-template-columns:minmax(0,1fr)}}
+.qropt .seg{min-width:0}
+.qropt .seg button{min-height:36px}
+@media (pointer:coarse){.qropt .seg button{min-height:44px}}
 .qrcam{display:flex;justify-content:center;margin:8px 0}
 .qrcam video{width:min(80vw,380px);max-height:280px;background:#000;border-radius:8px;object-fit:cover}
 .qrprog{display:flex;flex-wrap:wrap;gap:3px;margin:8px 0;justify-content:center}
@@ -149,7 +183,9 @@ small.mixed{color:var(--ink3);font-size:11px;margin-left:2px}
 .bsec{padding:10px 0 12px;border-top:1px solid var(--rule)}
 .bsec:first-child{border-top:0;padding-top:0}
 .bsec h3{margin:0 0 8px;font-size:13px;font-weight:600}
-.bsec .chk{display:flex;margin:6px 0}
+.bsec .chk{display:flex;margin:6px 0;white-space:normal;align-items:flex-start}
+.bsec .chk input{flex:none;margin-top:2px}
+.bsec .seg button{white-space:normal;line-height:1.15;height:auto;min-height:29px;padding:4px 6px}
 .presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .help h3{margin:14px 0 4px;font-size:13px;font-weight:600}
 .help p,.help li{color:var(--ink2);margin:3px 0}
@@ -157,6 +193,7 @@ small.mixed{color:var(--ink3);font-size:11px;margin-left:2px}
 .ktable{width:100%;border-collapse:collapse;font-size:12.5px}
 .ktable td{padding:4px 6px;border-top:1px solid var(--rule)}
 .ktable td:last-child{text-align:right;color:var(--ink2);white-space:nowrap}
+@media (max-width:480px){.ktable{table-layout:fixed}.ktable td{overflow-wrap:anywhere}.ktable td:first-child{width:52%}.ktable td:last-child{white-space:normal}}
 .hide-left .palette{display:none}
 .hide-right .insp{display:none}
 .hide-toolbox .tbx{display:none}
@@ -184,6 +221,7 @@ textarea{height:220px;padding:8px 9px;font:12px/1.5 ui-monospace,SFMono-Regular,
 .seg.sm button{height:24px;min-width:30px}
 .chk{display:inline-flex;align-items:center;gap:6px;color:var(--ink2);cursor:pointer;white-space:nowrap}
 .chk input{width:15px;height:15px;margin:0;accent-color:var(--hub)}
+@media (pointer:coarse){.chk{min-height:36px}.chk input{width:20px;height:20px}}
 .mini{height:30px;padding:0 12px;border:1.5px solid var(--rule2);border-radius:999px;background:var(--field)}
 .mini:hover{border-color:var(--ink)}
 .mini.danger:hover{border-color:var(--guide);color:var(--guide)}
@@ -201,6 +239,7 @@ textarea{height:220px;padding:8px 9px;font:12px/1.5 ui-monospace,SFMono-Regular,
 .lnlab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sw{width:22px;height:22px;padding:0;border-radius:6px;border:2px solid var(--rule2);flex:none}
 .sw[data-cur="1"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--panel) inset}
+@media (pointer:coarse){.swl{gap:8px}.sw{width:36px;height:36px;border-radius:8px}}
 .cfield{margin:0 0 12px}
 .cfield:last-child{margin-bottom:0}
 .fonts{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:8px 0 2px;color:var(--ink2);font-size:12px}
@@ -228,15 +267,28 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
 .trow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;border:1px solid var(--rule);border-radius:10px}
 .trow input[type=text]{height:30px;flex:1 1 110px;min-width:70px}
 .trow input.tf-no{flex:0 0 58px;min-width:0;text-align:center}
+.trow input.tf-num{flex:0 0 92px;min-width:0}
 .trow .chk{flex:0 0 auto}
-.trow select.tf-mode{flex:0 0 96px;height:30px}
+.trow>*{min-width:0}
+.tf-modeseg{display:flex;flex:0 0 auto;border:1.5px solid var(--rule2);border-radius:8px;overflow:hidden}
+.tf-modeseg button{min-width:30px;height:34px;padding:0 7px;border:0;background:var(--field);font-size:12px}
+.tf-modeseg button+button{border-left:1px solid var(--rule2)}
+.tf-modeseg button[aria-pressed="true"]{background:var(--hub);color:var(--hub-ink)}
+@media (max-width:480px){.tf-modeseg{flex:1 1 100%}.tf-modeseg button{flex:1}}
+@media (pointer:coarse){.tf-modeseg button{height:40px;min-width:38px}}
 .trow-del{flex:0 0 auto;height:30px;width:30px;padding:0;border:0;border-radius:8px;background:transparent;color:var(--ink3);font-size:15px;line-height:1}
 .trow-del:hover{background:var(--rule);color:var(--guide)}
 .thead{display:flex;gap:6px;padding:0 8px;color:var(--ink3);font-size:11px}
 .thead span{flex:1 1 110px}
 .thead span.h-no{flex:0 0 58px;text-align:center}
+.thead span.h-num{flex:0 0 92px}
 .thead span.h-hub{flex:0 0 52px}
 .thead span.h-del{flex:0 0 30px}
+@media (max-width:480px){.thead{display:none}}
+@media (pointer:coarse){.dlg .seg button{min-height:40px}.dlg .mini{min-height:40px}}
+@media (pointer:coarse){#insp .seg button,#insp .mini,#insp .hubbtn{min-height:38px}}
+#insp .seg{flex-wrap:wrap}
+#insp .seg button{flex:1 1 auto}
 .pv img{display:block;max-width:100%;height:auto;margin:0 auto}
 .dlg-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
 .dlg-actions .hubbtn{margin:0}
@@ -246,8 +298,10 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
 
 @media (pointer:coarse){.vseg{width:132px}.vseg button{height:34px}}
 @media (max-width:860px){
-  .top{gap:6px}
-  .brand{font-size:15px}
+  .top{gap:4px;padding:0 6px;height:44px}
+  .brand{font-size:14px;letter-spacing:.02em;padding-right:2px}
+  .menubar{flex:0 0 auto;overflow:visible}
+  .menubar button{height:38px;padding:0 8px}
   .projname{display:none}
   .main{flex-direction:column}
   .side{width:auto;height:var(--sideh,54%);max-height:none;border-left:0;border-top:1px solid var(--rule)}
@@ -261,6 +315,13 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
   .coord{display:none}
   .bar{gap:6px 10px;padding:6px 10px}
   .hint{flex:1 1 60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:400px){
+  .brand{font-size:12px;letter-spacing:0}
+  .menubar button{padding:0 6px;font-size:13px}
+}
+@media (max-width:340px){
+  .brand{display:none}
 }
 </style>
 </head>
@@ -297,6 +358,10 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
         <button class="cmd" type="button" data-cmd="redo" title="やり直し (Ctrl+Shift+Z)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7l5 5-5 5"/><path d="M20 12h-9.5a5 5 0 000 10H13"/></svg><span>やり直し</span></button>
         <button class="cmd" type="button" data-cmd="dup" title="選択を複製 (Ctrl+D)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7.5a2 2 0 002 2h2.5"/></svg><span>複製</span></button>
         <button class="cmd" type="button" data-cmd="del" title="選択を削除 (Delete)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M10 7V4.5h4V7M7 7l.8 12.5h8.4L17 7"/></svg><span>選択削除</span></button>
+      </div>
+      <div class="tbx-row">
+        <button class="cmd" type="button" data-cmd="copy" title="選択をコピー (Ctrl+C)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg><span>コピー</span></button>
+        <button class="cmd" type="button" data-cmd="paste" title="貼り付け (Ctrl+V)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="12" height="16" rx="2"/><path d="M9 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/></svg><span>貼り付け</span></button>
         <button class="cmd" type="button" data-cmd="selall" title="すべて選択 (Ctrl+A)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="3 2.6"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span>全選択</span></button>
         <button class="cmd" type="button" data-cmd="desel" title="選択を解除 (Esc)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>選択解除</span></button>
       </div>
@@ -326,6 +391,7 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
     <div class="og">
       <div class="fld"><span>形式</span><div class="seg" id="segFmt" role="group"><button type="button" data-fmt="png" aria-pressed="true">PNG</button><button type="button" data-fmt="svg" aria-pressed="false">SVG</button></div></div>
       <div class="fld" id="fldScale"><span>倍率</span><div class="seg" id="segScale" role="group"><button type="button" data-scale="1" aria-pressed="false">1×</button><button type="button" data-scale="2" aria-pressed="true">2×</button><button type="button" data-scale="3" aria-pressed="false">3×</button><button type="button" data-scale="4" aria-pressed="false">4×</button></div></div>
+      <div class="fld"><span>範囲</span><div class="seg" id="segRange" role="group"><button type="button" data-range="board" aria-pressed="true">台紙内のみ</button><button type="button" data-range="all" aria-pressed="false">全要素を含む範囲</button></div></div>
       <div class="fld"><span>余白 (px)</span><input type="number" id="expMargin" min="0" max="400" step="1"></div>
       <div class="fld"><span>背景</span><div class="inline"><input type="color" id="expBg" aria-label="背景色"><label class="chk"><input type="checkbox" id="expTransp"> 透明</label></div><div id="expBgSw"></div></div>
     </div>
@@ -344,7 +410,7 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
   <div class="dlg">
     <h2>表から路線と駅を生成</h2>
     <p>路線番号が同じ行を1本の路線にまとめ、駅名を順番に並べて自動で配置します。同じ駅名が別の路線にも出てくると、そこで線をつなげて乗換駅（ハブ）にします。生成するたびに新しい路線として追加されます（やり直す場合は上の「元に戻す」）。</p>
-    <div class="thead"><span class="h-no">番号</span><span>路線名/種別</span><span>駅名</span><span class="h-mode" style="flex:0 0 96px">モード</span><span class="h-hub">ハブ</span><span class="h-del"></span></div>
+    <div class="thead"><span class="h-no">番号</span><span>路線名/種別</span><span>駅名</span><span class="h-num">駅番号</span><span class="h-mode" style="flex:0 0 96px">モード</span><span class="h-hub">ハブ</span><span class="h-del"></span></div>
     <div class="trows" id="tblRows"></div>
     <div class="dlg-actions" style="justify-content:flex-start">
       <button class="mini" type="button" id="tblAddRow">行を追加</button>
@@ -412,10 +478,10 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
         <button type="button" class="mini" id="qrNext">次へ ▶</button>
       </div>
       <div class="qropt">
-        <label for="qrSpeed">切り替え</label>
-        <select id="qrSpeed"><option value="2200">ゆっくり</option><option value="1300" selected>ふつう</option><option value="750">はやい</option></select>
-        <label for="qrSize">1枚の量</label>
-        <select id="qrSize"><option value="250">少なめ（読みやすい）</option><option value="450" selected>ふつう</option><option value="800">多め（枚数が少ない）</option></select>
+        <span class="lbl" id="qrSpeedLbl">切り替え</span>
+        <div class="seg" id="qrSpeed" role="group" aria-labelledby="qrSpeedLbl"><button type="button" data-v="2200" aria-pressed="false">ゆっくり</button><button type="button" data-v="1300" aria-pressed="true">ふつう</button><button type="button" data-v="750" aria-pressed="false">はやい</button></div>
+        <span class="lbl" id="qrSizeLbl">1枚の量</span>
+        <div class="seg" id="qrSize" role="group" aria-labelledby="qrSizeLbl"><button type="button" data-v="250" aria-pressed="false">少なめ</button><button type="button" data-v="450" aria-pressed="true">ふつう</button><button type="button" data-v="800" aria-pressed="false">多め</button></div>
       </div>
       <p class="note">受け取る側の端末で「QRコードで転送 → 受け取る」を開き、このコードにカメラを向けてください。順番は問わず、読み逃した分は次の周回で読めます。全部そろうと自動で完了します。</p>
     </div>
@@ -476,7 +542,7 @@ dialog::backdrop{background:rgba(18,18,20,.5)}
     <h2>ボード設定</h2>
     <div id="boardBody"></div>
     <div class="dlg-actions">
-      <button class="mini" type="button" id="boardReset">フォーマットを初期値に戻す</button>
+      <button class="mini" type="button" id="boardReset">ボード設定を初期値に戻す</button>
       <button class="hubbtn" type="button" id="boardClose">閉じる</button>
     </div>
   </div>
@@ -557,53 +623,74 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 
 /* ================= format (measured from the supplied spec image) ================= */
 const FAMILY='"Sen","Sawarabi Gothic","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans CJK JP",sans-serif';
+const FONT_CSS_URL='https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Sen:wght@400..800&display=swap';
+// SVGの中でGoogleフォント（Sen・Sawarabi Gothic）を読み込む。ブラウザなどでSVGを開いたときに、同じ字形で表示される（読み込めない環境では、下の代わりのフォントになる）
+const SVG_FONT_STYLE='<defs><style><![CDATA[@import url(\''+FONT_CSS_URL+'\');]]></style></defs>';   // URLの & は、CDATAに入れてXMLとして正しくする
 const FAMILY_SVG="Sen,'Sawarabi Gothic','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif";
 const BASE_STD={lineWidth:10,laneGap:40,stW:25,stH:40,stStroke:3,stGap:40,labelSize:28.5,labelBox:160,labelH:40,labelGap:20,hubW:120,hubH:40,hubSize:24,hubPad:14};
 // 路面電車など超近距離向け: 文字・駅・線を小さく、間隔を狭くした別フォーマット
 const BASE_TRAM={lineWidth:6,laneGap:22,stW:14,stH:22,stStroke:2,stGap:20,labelSize:16,labelBox:100,labelH:24,labelGap:12,hubW:70,hubH:24,hubSize:14,hubPad:8};
 // アプリの版（アプリを更新したときに変える）と、JSONの形式の版（互換性のない構造変更をしたときだけ変える）は別々に管理する
 const APP_VERSION='2026.10.14';
-const DATA_VERSION=2; // v2: 路線のモード・個別寸法・描画順(z)、駅の所属路線(lineIds)、履歴（任意）を追加。v1も読み込める
+const DATA_VERSION=3; // v3: 距離モードを4種類にし、路線・駅が自分の大きさ(gap/width, mw/mh/fs)を持つ。盤の現在モード(s.mode)と個別設定(s.cur)を追加。v1・v2も読み込める（旧モードは読み替える）
+// v2: 路線のモード・個別寸法・描画順(z)、駅の所属路線(lineIds)、履歴（任意）を追加
 // ---- 路線ごとの距離モード（長距離・中距離・短距離）。路線単位で持ち、同じ図の中に混在できる ----
 //   基準値(BASE)と、モードの倍率・個別設定は別々に持ち、表示中の寸法に倍率を重ねがけしない（計算のたびに基準から出す）
+// ---- 距離モード（近距離・中距離・遠距離・超遠距離）。40pxグリッドを基準にした標準値 ----
+//   モードを切り替えると、そのモードの標準値が「個別設定」に入り、これから置く駅・路線に使われる。すでにある駅や路線は変えない
 const MODES={
-  long:{name:'長距離',note:'新幹線・特急',gap:2,marker:1,label:1},
-  mid:{name:'中距離',note:'一般鉄道・MRT',gap:1,marker:1,label:1},
-  short:{name:'短距離',note:'地下鉄・LRT・路面電車',gap:0.5,marker:0.5,label:0.5}
+  near:{name:'近距離',note:'LRT・路面電車',gap:20,mw:14,mh:22,lw:5,fs:16},
+  mid:{name:'中距離',note:'MRT・地下鉄・モノレール',gap:40,mw:25,mh:40,lw:10,fs:28.5},
+  far:{name:'遠距離',note:'一般鉄道',gap:80,mw:25,mh:40,lw:10,fs:28.5},
+  xfar:{name:'超遠距離',note:'高速鉄道',gap:120,mw:25,mh:40,lw:10,fs:28.5}
 };
-const MODE_KEYS=['long','mid','short'];
+const MODE_KEYS=['near','mid','far','xfar'];
+const LEGACY_MODE={long:'far',mid:'mid',short:'near'};   // 旧データ（長・中・短）の読み替え
+const modeStd=k=>MODES[k]||MODES.mid;
+// いまの個別設定（駅間隔gap・駅マーカー幅mw×高さmh・路線幅lw・駅名文字fs）= モードの標準値 + 上書き。盤の倍率(scale)をかける前の値
+const curVals=S=>Object.assign({},modeStd(S&&S.mode),(S&&S.cur)||{});
 const posNum=v=>(typeof v==='number'&&Number.isFinite(v)&&v>0)?v:null;
-function lineFac(L){
-  const m=MODES[L&&L.mode]||MODES.mid,k=(L&&L.k)||{};
+// 旧データ（v2まで）の路線ごとの倍率。読み込み時の変換にだけ使う
+function legacyFac(L){
+  const LM={long:{gap:2,marker:1,label:1},mid:{gap:1,marker:1,label:1},short:{gap:0.5,marker:0.5,label:0.5}};
+  const m=LM[L&&L.mode]||LM.mid,k=(L&&L.k)||{};
   return {gap:posNum(k.gap)||m.gap,marker:posNum(k.marker)||m.marker,label:posNum(k.label)||m.label};
 }
 let ssStamp=0;const ssCache=new WeakMap();
 // 駅ごとの有効な寸法。駅が所属する路線（先頭）のモード・個別設定で、駅マーカーと駅名の大きさを決める
 function SS(s,S){
-  if(!s||S._ss||!s.lineIds||!s.lineIds.length)return S;
-  const L=state.lines.find(l=>l.id===s.lineIds[0]);
-  if(!L)return S;
-  const f=lineFac(L);
-  if(f.marker===1&&f.label===1)return S;
+  if(!s||S._ss)return S;
+  const mw=s.mw,mh=s.mh,fs=s.fs;
+  if(!(mw>0||mh>0||fs>0))return S;   // 大きさを持たない駅は、盤の基準のまま
+  const k=S.scale||1,bw=S.stW/k,bh=S.stH/k,bl=S.labelSize/k;
+  const W=mw>0?mw:bw,H=mh>0?mh:bh,F=fs>0?fs:bl;
+  if(Math.abs(W-bw)<1e-9&&Math.abs(H-bh)<1e-9&&Math.abs(F-bl)<1e-9)return S;
   let c=ssCache.get(S);
   if(!c||c.stamp!==ssStamp){c={stamp:ssStamp,m:new Map()};ssCache.set(S,c);}
-  const key=f.marker+'|'+f.label;
+  const key=W+'|'+H+'|'+F;
   let o=c.m.get(key);
   if(!o){
+    const mf=H/bh,lf=F/bl;
     o=Object.assign({},S);o._ss=true;
-    o.stW=S.stW*f.marker;o.stH=S.stH*f.marker;o.stStroke=Math.max(1.2,S.stStroke*f.marker);
-    o.hubSize=S.hubSize*f.marker;o.hubPad=S.hubPad*f.marker;
-    o.labelSize=S.labelSize*f.label;o.labelBox=S.labelBox*f.label;o.labelH=S.labelH*f.label;o.labelGap=S.labelGap*f.label;
+    o.stW=W*k;o.stH=H*k;o.stStroke=Math.max(1.2,S.stStroke*mf);
+    o.hubSize=S.hubSize*mf;o.hubPad=S.hubPad*mf;
+    o.labelSize=F*k;o.labelBox=S.labelBox*lf;o.labelH=S.labelH*lf;o.labelGap=S.labelGap*lf;
     c.m.set(key,o);
   }
   return o;
 }
-const lineGap=(L,S)=>S.stGap*lineFac(L).gap;
+// 路線の駅間隔・路線幅（盤の倍率をかけた実寸）。路線が個別に持つ値が優先、なければそのモードの標準値
+const lineGap=(L,S)=>((L&&L.gap>0)?L.gap:modeStd(L&&L.mode).gap)*((S&&S.scale)||1);
+const lineW=(L,S)=>((L&&L.width!=null&&L.width>0)?L.width:modeStd(L&&L.mode).lw)*(((S||state.s)&&(S||state.s).scale)||1);
+// これから新しく置く路線・駅の大きさ（いまの個別設定）
+const newLineStyle=()=>{const S=state.s,c=curVals(S);return {mode:MODES[S.mode]?S.mode:'mid',k:null,gap:c.gap,width:c.lw};};
+const newStationStyle=()=>{const c=curVals(state.s);return {mw:c.mw,mh:c.mh,fs:c.fs};};
 const nextZ=()=>state.lines.reduce((m,l)=>Math.max(m,l.z||0),0)+10;
 // 橋・交差の種類。形は今は「アーチ橋」（上を⌒で跨ぐ）と「橋（下を切る）」。橋脚つきなどの新しい形は、ここに足す
 const BRIDGE_TYPES={
   bridge:{label:'橋（下を切る）',kind:'gap'},
-  arc:{label:'アーチ橋',kind:'hop'}
+  arc:{label:'アーチ橋',kind:'hop'},
+  pier:{label:'橋脚つき橋',kind:'gap',piers:true}   // 下を通る線路を切り、橋（上の線）の線路の下に「|」を2本置いて、その間に下の線路を通す
 };
 const BRIDGE_OPTS=[['none','なし']].concat(Object.keys(BRIDGE_TYPES).map(k=>[k,BRIDGE_TYPES[k].label]));
 const NUMPOS_KEYS=['between','inside','left','right','top','bottom'];
@@ -614,6 +701,7 @@ const FORMATS={
 const baseDims=S=>(FORMATS[S.format]||FORMATS.standard).dims;
 const FORMAT={
   format:'standard',
+  mode:'mid', cur:null, legend:true,
   numPos:'between',
   scale:1,
   lineColor:'#808080', lineWidth:10, laneGap:40,
@@ -647,7 +735,7 @@ let sel=new Set(), selVi=-1, selSeg=null, selWhole=false; // selSeg={id,i}: 選�
 let tool='select', drawing=null, drag=null, hoverPt=null, ghost=null;
 let space=false, snapOn=true, lastClick=null;
 let view={x:40,y:40,k:1};
-let prefs={sideH:54,uiScale:'auto',scale:2,fmt:'png',lanes:1,align:'center',manualLanes:false,saveHistory:true,member:'none',hubX:1,hubY:1,showGrid:true,showGuides:true,theme:'auto',view:{left:true,right:true,toolbox:true,status:true}};
+let prefs={expRange:'board',sideH:54,uiScale:'auto',scale:2,fmt:'png',lanes:1,align:'center',manualLanes:false,saveHistory:true,member:'none',hubX:1,hubY:1,showGrid:true,showGuides:true,theme:'auto',view:{left:true,right:true,toolbox:true,status:true}};
 let css={};
 let raf=0, textSig='';
 const openG={};
@@ -656,7 +744,7 @@ function lsGet(k){try{return localStorage.getItem(k);}catch(_){return null;}}
 let lsWarned=false;
 function lsSet(k,v){try{localStorage.setItem(k,v);}catch(_){if(!lsWarned){lsWarned=true;try{toast('自動保存できませんでした（保存先がいっぱいか、使えない設定です）。「ファイル → 保存」でファイルに保存してください');}catch(__){}}}}
 
-function fresh(){return {v:DATA_VERSION,app:APP_VERSION,name:'',s:Object.assign({},FORMAT),lines:[],stations:[],texts:[],table:[],seq:1};}
+function fresh(){return {v:DATA_VERSION,app:APP_VERSION,name:'',s:Object.assign({},FORMAT),lines:[],stations:[],texts:[],table:[],cx:[],seq:1};}
 function fixIds(arrs){
   const used=new Set();let max=0;
   for(const a of arrs)for(const o of a){
@@ -688,9 +776,14 @@ function normalize(o){
     }
     if(st.s.numShape!=='square')st.s.numShape='circle';
     if(!FORMATS[st.s.format])st.s.format='standard';
+    if(MODES[o.s.mode])st.s.mode=o.s.mode;
+    st.s.legend=o.s.legend!==false;
+    if(o.s.cur&&typeof o.s.cur==='object'){const c={};for(const k of ['gap','mw','mh','lw','fs']){const n=parseFloat(o.s.cur[k]);if(Number.isFinite(n)&&n>0)c[k]=n;}st.s.cur=Object.keys(c).length?c:null;}
     if(!NUMPOS_KEYS.includes(st.s.numPos))st.s.numPos='between';
   }
   applyScale(st.s);
+  const verIn=numOr(o.v,1),legacy=verIn<3,legacyTram=legacy&&st.s.format==='tram',lfMap=new WeakMap();
+  if(legacyTram&&!(o.s&&MODES[o.s.mode]))st.s.mode='near';   // 旧「路面電車向け」の盤は、近距離モードの盤として読む
   const legacyCross=(o.s&&BRIDGE_TYPES[o.s.cross])?o.s.cross:(o.s&&o.s.hop===true?'arc':'');
   for(const L of (Array.isArray(o.lines)?o.lines:[])){
     if(!L||!Array.isArray(L.pts))continue;
@@ -701,9 +794,19 @@ function normalize(o){
     let cross=null;
     if(Array.isArray(L.cross)){cross=[];for(let i=0;i<pts.length-1;i++){const v=L.cross[i];cross.push(BRIDGE_TYPES[v]?v:'');}if(!cross.some(Boolean))cross=null;}
     else if(legacyCross)cross=new Array(pts.length-1).fill(legacyCross);
-    const kk=(L.k&&typeof L.k==='object')?{gap:posNum(parseFloat(L.k.gap)),marker:posNum(parseFloat(L.k.marker)),label:posNum(parseFloat(L.k.label))}:null;
-    const zz=parseFloat(L.z);
-    st.lines.push({id:L.id,mode:MODE_KEYS.includes(L.mode)?L.mode:'mid',k:(kk&&(kk.gap||kk.marker||kk.label))?kk:null,z:Number.isFinite(zz)?zz:null,pts,color:typeof L.color==='string'?L.color:null,width:Number.isFinite(parseFloat(L.width))?parseFloat(L.width):null,r:Math.max(0,numOr(L.r,0)),name:L.name==null?'':String(L.name),dash,cross,numShape:['circle','square'].includes(L.numShape)?L.numShape:''});
+    const zz=parseFloat(L.z),wIn=parseFloat(L.width);
+    let modeKey,gap=null,width=null,f=null;
+    if(legacy){   // 旧データ: 長・中・短と個別倍率から、いまの見た目そのままの実寸（倍率をかける前）を出して、路線に持たせる
+      f=legacyFac(L);const bd=legacyTram?BASE_TRAM:BASE_STD,sc=st.s.scale||1;
+      modeKey=legacyTram?'near':(LEGACY_MODE[L.mode]||'mid');
+      gap=bd.stGap*f.gap;width=Number.isFinite(wIn)?wIn/sc:bd.lineWidth;
+    }else{
+      modeKey=MODES[L.mode]?L.mode:'mid';
+      const g=parseFloat(L.gap);gap=(Number.isFinite(g)&&g>0)?g:null;width=(Number.isFinite(wIn)&&wIn>0)?wIn:null;
+    }
+    const lo={id:L.id,mode:modeKey,k:null,gap,z:Number.isFinite(zz)?zz:null,pts,color:typeof L.color==='string'?L.color:null,width,r:Math.max(0,numOr(L.r,0)),name:L.name==null?'':String(L.name),dash,cross,numShape:['circle','square'].includes(L.numShape)?L.numShape:''};
+    if(f)lfMap.set(lo,f);
+    st.lines.push(lo);
   }
   for(const s of (Array.isArray(o.stations)?o.stations:[])){
     if(!s)continue;
@@ -716,6 +819,7 @@ function normalize(o){
       q.alignX=['center','start','end'].includes(s.alignX)?s.alignX:'center';
       q.alignY=['center','start','end'].includes(s.alignY)?s.alignY:'center';
     }
+    if(!legacy){const mw=parseFloat(s.mw),mh=parseFloat(s.mh),fs=parseFloat(s.fs);if(mw>0)q.mw=mw;if(mh>0)q.mh=mh;if(fs>0)q.fs=fs;}
     st.stations.push(q);
   }
   for(const t of (Array.isArray(o.texts)?o.texts:[])){
@@ -724,9 +828,42 @@ function normalize(o){
   }
   for(const r of (Array.isArray(o.table)?o.table:[])){
     if(!r)continue;
-    st.table.push({id:r.id,routeNo:r.routeNo==null?'':String(r.routeNo),routeName:r.routeName==null?'':String(r.routeName),station:r.station==null?'':String(r.station),hub:!!r.hub,mode:MODE_KEYS.includes(r.mode)?r.mode:''});
+    st.table.push({id:r.id,routeNo:r.routeNo==null?'':String(r.routeNo),routeName:r.routeName==null?'':String(r.routeName),station:r.station==null?'':String(r.station),hub:!!r.hub,num:r.num==null?'':String(r.num).slice(0,12),mode:MODE_KEYS.includes(r.mode)?r.mode:(LEGACY_MODE[r.mode]||'')});
+  }
+  // 路線IDの重複: 同じIDの路線が2本以上あるとき、駅の所属・駅番号がどの路線のものかを、駅の位置から1本に決まるものだけ付け替える。
+  // 決まらない（どちらにも・両方に重なる）ものは、推測で付け替えず外す（駅は残す）
+  const dupFix=[],dupInfo={groups:0,remapped:0,dropped:0};
+  {
+    const by=new Map();
+    for(const L of st.lines){if(Number.isInteger(L.id)&&L.id>0){const g=by.get(L.id)||[];g.push(L);by.set(L.id,g);}}
+    for(const [id,g] of by){
+      if(g.length<2)continue;
+      dupInfo.groups+=g.length-1;
+      for(const q of st.stations){
+        const hasRef=(q.lineIds&&q.lineIds.includes(id))||(q.nums&&Object.prototype.hasOwnProperty.call(q.nums,String(id)));
+        if(!hasRef)continue;
+        const cand=stationLines(q,st).filter(l=>g.includes(l));
+        if(cand.length===1){dupFix.push([q,id,cand[0]]);if(cand[0]!==g[0])dupInfo.remapped++;}   // 最初の路線のままなら、付け替えない
+        else{if(q.lineIds)q.lineIds=q.lineIds.filter(v=>v!==id);if(q.nums)delete q.nums[String(id)];dupInfo.dropped++;}
+      }
+    }
   }
   st.seq=Math.max(fixIds([st.lines,st.stations,st.texts,st.table]),numOr(o.seq,1));
+  // 交差ごとの上下の設定（st.cx）: 路線が実在する2本の組で、上にする側がその2本のどちらかのものだけ読む
+  st.cx=[];
+  if(Array.isArray(o.cx)){
+    const ids=new Set(st.lines.map(l=>l.id));
+    for(const c of o.cx){
+      if(!c||typeof c!=='object')continue;
+      const a=Math.min(+c.a,+c.b),b=Math.max(+c.a,+c.b),x=parseFloat(c.x),y=parseFloat(c.y),ov=+c.over;
+      if(a!==b&&ids.has(a)&&ids.has(b)&&Number.isFinite(x)&&Number.isFinite(y)&&(ov===a||ov===b))st.cx.push({a,b,x,y,over:ov});
+    }
+  }
+  for(const [q,oldId,Lc] of dupFix){   // 新しいIDがついた路線へ、所属と駅番号を移す
+    if(Lc.id===oldId)continue;
+    if(q.lineIds){q.lineIds=q.lineIds.filter(v=>v!==oldId);if(!q.lineIds.includes(Lc.id))q.lineIds.push(Lc.id);}
+    if(q.nums&&q.nums[String(oldId)]!=null){q.nums[String(Lc.id)]=q.nums[String(oldId)];delete q.nums[String(oldId)];}
+  }
   // 旧形式の駅番号（駅に1つ）は、その駅に最も近い路線の番号として引き継ぐ
   for(const q of st.stations){
     if(q._num&&!Object.keys(q.nums).length){const ls=stationLines(q,st);q.nums[ls.length?String(ls[0].id):'0']=q._num;}
@@ -735,12 +872,21 @@ function normalize(o){
   // 描画順(z)。無いものは、いまの並び順で振る（旧データの見た目を変えない）
   st.lines.forEach((l,i)=>{if(l.z==null)l.z=(i+1)*10;});
   const ver=numOr(o.v,1),warn={older:ver<DATA_VERSION,newer:ver>DATA_VERSION,bad:0};
+  if(dupInfo.groups)warn.dupIds=dupInfo;
   const ids=new Set(st.lines.map(l=>l.id));
   for(const q of st.stations){
     // 所属路線: 旧データ（項目なし）は、いまの位置から求めて補う（座標は変えない）。あるものは、存在しない路線への参照を外す
     if(q.lineIds===null)q.lineIds=stationLines(q,st).map(l=>l.id);
     else{const n0=q.lineIds.length;q.lineIds=q.lineIds.filter(id=>ids.has(id));warn.bad+=n0-q.lineIds.length;}
     for(const k of Object.keys(q.nums)){if(k!=='0'&&!ids.has(+k)){delete q.nums[k];warn.bad++;}}
+  }
+  if(legacy){   // 旧データの駅は、これまでの見た目そのままの大きさを、駅自身に持たせる
+    const bd=legacyTram?BASE_TRAM:BASE_STD;
+    for(const q of st.stations){
+      const L=(q.lineIds&&q.lineIds.length)?st.lines.find(l=>l.id===q.lineIds[0]):null;
+      const f=(L&&lfMap.get(L))||{marker:1,label:1};
+      q.mw=bd.stW*f.marker;q.mh=bd.stH*f.marker;q.fs=bd.labelSize*f.label;
+    }
   }
   if(ver<2)legacyCrossOrder(st);
   st.name=o.name==null?'':String(o.name);
@@ -1173,59 +1319,68 @@ function lineSegs(st){
   }
   return out;
 }
-function lineNameSpots(st){
+// 路線名: 線の内側に重ねず、線と平行に、線のわきに置く。駅と駅の間に、文字と余白が入る空きがあるところだけに出し、
+// 駅・駅名・駅番号・文字・ほかの路線名・ほかの路線に重なるところには出さない（無理に押し込まない）。
+// 文字の大きさは、路線のモードで決める（近距離10px／それ以外18px。盤の倍率をかける）
+function lineNameSize(L,S){return (L&&L.mode==='near'?10:18)*((S&&S.scale)||1);}
+function lineNameSpots(st,P){
   const S=st.s,out=[],ls=lineSegs(st);
+  const obst=[];   // 邪魔になるもの（駅・駅名・番号・文字など）の外枠
+  for(const p of (P||[])){if(p.bb&&(p.t==='rr'||p.t==='tx'||p.t==='arc')&&!p.legend)obst.push(p.bb);}
+  const placed=[];
+  const hit=(a,b,m)=>!(a[2]+m<=b[0]||a[0]-m>=b[2]||a[3]+m<=b[1]||a[1]-m>=b[3]);
   for(const L of st.lines){
-    if(!L.name||!L.name.trim())continue;
-    const mine=ls.filter(sg=>sg.L===L);
-    if(!mine.length)continue;
-    const segs2=[];let total=0;
-    for(const sg of mine){segs2.push({a:sg.a,ux:sg.ux,uy:sg.uy,len:sg.len,start:total});total+=sg.len;}
-    const size=Math.max(10,Math.min(16,(L.width!=null?L.width:S.lineWidth)*0.9));
-    const need=measure(L.name.trim(),size)+18;
-    if(need>total){out.push({x:segs2[0].a[0],y:segs2[0].a[1],ang:0,text:L.name.trim(),color:L.color||S.lineColor,size});continue;}
-    const blocked=[];
-    for(const s of st.stations){
-      const g=geom(s,S),clear=Math.max(g.w,g.h)/2+10;
-      let bestT=null,bestD=Infinity;
-      for(const sg of segs2){
-        const t=clamp((s.x-sg.a[0])*sg.ux+(s.y-sg.a[1])*sg.uy,0,sg.len);
-        const px=sg.a[0]+sg.ux*t,py=sg.a[1]+sg.uy*t,d=Math.hypot(s.x-px,s.y-py);
-        if(d<clear+30&&d<bestD){bestD=d;bestT=sg.start+t;}
+    const name=(L.name||'').trim();
+    if(!name)continue;
+    const size=lineNameSize(L,S),w=lineW(L,S),tw=measure(name,size),pad=8*(S.scale||1);
+    const need=tw+pad*2,off=w/2+3*(S.scale||1)+size*0.5;
+    for(const sg of ls){
+      if(sg.L!==L||sg.len<need)continue;
+      let nx=sg.uy,ny=-sg.ux;                       // 線の左側（上向き寄り）を基本にする
+      if(ny>1e-6||(Math.abs(ny)<=1e-6&&nx>0)){nx=-nx;ny=-ny;}   // 上、または左へ
+      let ang=Math.atan2(sg.uy,sg.ux)*180/Math.PI;if(ang>90||ang<=-90)ang+=180;   // 文字は逆さにしない
+      const ok=t=>{
+        const cx=sg.ax+sg.ux*t+nx*off,cy=sg.ay+sg.uy*t+ny*off;
+        const hw=Math.abs(sg.ux)*tw/2+Math.abs(sg.uy)*size/2,hh=Math.abs(sg.uy)*tw/2+Math.abs(sg.ux)*size/2;
+        const bb=[cx-hw,cy-hh,cx+hw,cy+hh];
+        for(const o of obst)if(hit(bb,o,2))return null;
+        for(const q of placed)if(hit(bb,q,3))return null;
+        // ほかの路線の線に重ならない（わきの文字の両端と中央で確かめる）
+        const nS=Math.max(2,Math.ceil(tw/(size*0.4)));   // 文字の長さにそって細かく確かめる
+        for(let q=0;q<=nS;q++){
+          const f=q/nS-0.5,px=cx+sg.ux*tw*f,py=cy+sg.uy*tw*f;
+          for(const o of ls){
+            if(o.L===L)continue;
+            const tt=clamp((px-o.ax)*o.ux+(py-o.ay)*o.uy,0,o.len),qx=o.ax+o.ux*tt,qy=o.ay+o.uy*tt;
+            if(Math.hypot(px-qx,py-qy)<lineW(o.L,S)/2+size/2+2)return null;
+          }
+        }
+        return {cx,cy,bb};
+      };
+      // 空きの続く範囲（文字を置ける中心位置の連なり）ごとに、真ん中に1つ置く
+      const step=Math.max(3,sg.len/120);let run=null;const runs=[];
+      for(let t=need/2;t<=sg.len-need/2+0.01;t+=step){
+        const r=ok(t);
+        if(r){if(!run)run={a:t,b:t};else run.b=t;}else if(run){runs.push(run);run=null;}
       }
-      if(bestT!=null)blocked.push([Math.max(0,bestT-clear-8),Math.min(total,bestT+clear+8)]);
-    }
-    // 他の路線と交わる所（交点・合流点）にも路線名は置かない
-    for(const sg of segs2){
-      for(const o of ls){
-        if(o.L===L)continue;
-        const den=sg.ux*o.uy-sg.uy*o.ux;
-        if(Math.abs(den)<1e-6)continue;
-        const dx=o.ax-sg.a[0],dy=o.ay-sg.a[1];
-        const t=(dx*o.uy-dy*o.ux)/den,e=(dx*sg.uy-dy*sg.ux)/den;
-        if(t<-1||t>sg.len+1||e<-1||e>o.len+1)continue;
-        const w=(o.L.width!=null?o.L.width:S.lineWidth)/2+6,c=sg.start+clamp(t,0,sg.len);
-        blocked.push([Math.max(0,c-w),Math.min(total,c+w)]);
+      if(run)runs.push(run);
+      for(const rn of runs){
+        const t=(rn.a+rn.b)/2,r=ok(t);
+        if(!r)continue;
+        placed.push(r.bb);
+        out.push({x:r.cx,y:r.cy,ang,text:name,color:L.color||S.lineColor,size,bb:r.bb});
       }
     }
-    const mid=total/2;
-    let bestSpot=null,bestDist=Infinity;
-    const step=Math.max(4,total/40);
-    for(let c=need/2;c<=total-need/2+0.01;c+=step){
-      const lo=c-need/2,hi=c+need/2;
-      if(blocked.some(b=>!(hi<=b[0]||lo>=b[1])))continue;
-      const d=Math.abs(c-mid);
-      if(d<bestDist){bestDist=d;bestSpot=c;}
-    }
-    if(bestSpot==null)continue;
-    let seg=segs2[segs2.length-1];
-    for(const sg of segs2)if(bestSpot>=sg.start&&bestSpot<=sg.start+sg.len+0.01){seg=sg;break;}
-    const t=bestSpot-seg.start,x=seg.a[0]+seg.ux*t,y=seg.a[1]+seg.uy*t;
-    let ang=Math.atan2(seg.uy,seg.ux)*180/Math.PI;
-    if(ang>90||ang<-90)ang+=180;
-    out.push({x,y,ang,text:L.name.trim(),color:L.color||S.lineColor,size});
   }
   return out;
+}
+// 白い背景で読める色にする（薄い路線色は少し暗くする）
+function readableOnWhite(hex){
+  const m=typeof hex==='string'&&/^#([0-9a-fA-F]{6})$/.exec(hex);
+  if(!m)return '#373C3F';
+  const v=parseInt(m[1],16),r=(v>>16)&255,g=(v>>8)&255,b=v&255,L=(0.2126*r+0.7152*g+0.0722*b)/255;
+  if(L<=0.6)return hex;
+  const k=0.62;return '#'+[r,g,b].map(x=>Math.round(x*k).toString(16).padStart(2,'0')).join('');
 }
 function stationLineColor(s,st){
   const S=st.s,g=geom(s,S),tol=Math.max(g.w,g.h)/2+4;
@@ -1321,42 +1476,84 @@ function raiseAboveCrossings(L,segs){
 }
 // 他の路線を跨ぐ箇所。区間ごとに「なし／橋／弧」を決める（区間の設定が上を跨ぐ側。両方に設定があれば後から引いた路線が手前）
 //  橋: 下を通る路線を、交差部分で途切れさせる　弧: 手前の路線が ⌒ の形で跨ぐ　駅・ハブ駅の近くの交差は乗換なので対象外
+// 交差ごとの上下: 2本の路線が複数の地点で交差しても、地点ごとに「どちらが上か」を決められる（st.cx）。地点は「2路線のID＋交差の位置」で見分ける
+const CX_TOL=24;
+function cxFind(st,idA,idB,x,y){
+  const lo=Math.min(idA,idB),hi=Math.max(idA,idB);let best=null,bd=CX_TOL;
+  for(const c of (st.cx||[])){if(c.a!==lo||c.b!==hi)continue;const d=Math.hypot(c.x-x,c.y-y);if(d<=bd){bd=d;best=c;}}
+  return best;
+}
+// すべての交差地点（線の組と位置）。overは、いまその地点で上にある路線のID、manualは地点ごとの設定があるか
+function listCrossings(st){
+  const out=[],Ls=lineOrder(st);
+  for(let j=1;j<Ls.length;j++)for(let i=0;i<j;i++){
+    const Zo=Ls[j],Zu=Ls[i];
+    for(let b=0;b<Zo.pts.length-1;b++){
+      const ob=Zo.pts[b],oe=Zo.pts[b+1],olen=Math.hypot(oe[0]-ob[0],oe[1]-ob[1]);if(olen<0.01)continue;
+      const ux=(oe[0]-ob[0])/olen,uy=(oe[1]-ob[1])/olen;
+      for(let a=0;a<Zu.pts.length-1;a++){
+        const ua=Zu.pts[a],ue=Zu.pts[a+1],ulen=Math.hypot(ue[0]-ua[0],ue[1]-ua[1]);if(ulen<0.01)continue;
+        const vx=(ue[0]-ua[0])/ulen,vy=(ue[1]-ua[1])/ulen,den=ux*vy-uy*vx;if(Math.abs(den)<0.25)continue;
+        const dx=ua[0]-ob[0],dy=ua[1]-ob[1],t=(dx*vy-dy*vx)/den,e=(dx*uy-dy*ux)/den;
+        if(t<0||t>olen||e<0||e>ulen)continue;
+        const cx=ob[0]+ux*t,cy=ob[1]+uy*t,m=cxFind(st,Zo.id,Zu.id,cx,cy);
+        out.push({a:Math.min(Zo.id,Zu.id),b:Math.max(Zo.id,Zu.id),x:cx,y:cy,over:m?m.over:Zo.id,manual:!!m,segO:{id:Zo.id,i:b},segU:{id:Zu.id,i:a}});
+      }
+    }
+  }
+  return out;
+}
+// 形が変わって、設定した交差がなくなったら、その設定を外す（外した数を返す）
+function pruneCx(st){
+  if(!st.cx||!st.cx.length)return 0;
+  const all=listCrossings(st),before=st.cx.length;
+  st.cx=st.cx.filter(c=>all.some(k=>k.a===c.a&&k.b===c.b&&Math.hypot(k.x-c.x,k.y-c.y)<=CX_TOL));
+  for(const c of st.cx){const k=all.filter(k=>k.a===c.a&&k.b===c.b).sort((p,q)=>Math.hypot(p.x-c.x,p.y-c.y)-Math.hypot(q.x-c.x,q.y-c.y))[0];if(k){c.x=k.x;c.y=k.y;}}   // 少し動いた交差には、設定を追従させる
+  return before-st.cx.length;
+}
 function computeCrossings(st){
   const S=st.s,out=new Map();
   if(st.lines.length<2||!st.lines.some(L=>L.cross))return out;
   const sbbs=st.stations.map(s=>{const g=geom(s,S);return rotBB(s.x,s.y,g.w,g.h,g.rot);});
-  const slot=id=>{let e=out.get(id);if(!e){e={hops:[],gaps:[]};out.set(id,e);}return e;};
-  const Ls=lineOrder(st);   // 後ろの路線ほど手前（上）
+  const slot=id=>{let e=out.get(id);if(!e){e={hops:[],gaps:[],piers:[]};out.set(id,e);}return e;};
+  const Ls=lineOrder(st);   // 後ろの路線ほど手前（上）。地点ごとの設定があれば、その地点だけ上下を入れ替える
   for(let j=1;j<Ls.length;j++){
-    const O=Ls[j],wo=O.width!=null?O.width:S.lineWidth;
+    const Zo=Ls[j];
     for(let i=0;i<j;i++){
-      const U=Ls[i],wu=U.width!=null?U.width:S.lineWidth;
-      for(let b=0;b<O.pts.length-1;b++){
-        const ob=O.pts[b],oe=O.pts[b+1],olen=Math.hypot(oe[0]-ob[0],oe[1]-ob[1]),style=(O.cross&&O.cross[b])||'';
-        if(!style||olen<0.01)continue;
-        const ux=(oe[0]-ob[0])/olen,uy=(oe[1]-ob[1])/olen;
-        for(let a=0;a<U.pts.length-1;a++){
-          const ua=U.pts[a],ue=U.pts[a+1],ulen=Math.hypot(ue[0]-ua[0],ue[1]-ua[1]);
-          if(ulen<0.01)continue;
-          const vx=(ue[0]-ua[0])/ulen,vy=(ue[1]-ua[1])/ulen,den=ux*vy-uy*vx;
+      const Zu=Ls[i];
+      for(let b=0;b<Zo.pts.length-1;b++){
+        const ob=Zo.pts[b],oe=Zo.pts[b+1],zlen=Math.hypot(oe[0]-ob[0],oe[1]-ob[1]);
+        if(zlen<0.01)continue;
+        const zx=(oe[0]-ob[0])/zlen,zy=(oe[1]-ob[1])/zlen;
+        for(let a=0;a<Zu.pts.length-1;a++){
+          const ua=Zu.pts[a],ue=Zu.pts[a+1],ulen0=Math.hypot(ue[0]-ua[0],ue[1]-ua[1]);
+          if(ulen0<0.01)continue;
+          const vx0=(ue[0]-ua[0])/ulen0,vy0=(ue[1]-ua[1])/ulen0,den=zx*vy0-zy*vx0;
           if(Math.abs(den)<0.25)continue;
           const dx=ua[0]-ob[0],dy=ua[1]-ob[1];
-          const t=(dx*vy-dy*vx)/den,e=(dx*uy-dy*ux)/den;
-          const cx=ob[0]+ux*t,cy=ob[1]+uy*t,R=Math.max(6,(wo+wu)/2+3);
+          const tz=(dx*vy0-dy*vx0)/den,ez=(dx*zy-dy*zx)/den;
+          const cx=ob[0]+zx*tz,cy=ob[1]+zy*tz;
+          const m=cxFind(st,Zo.id,Zu.id,cx,cy),swap=!!(m&&m.over===Zu.id);
+          const O=swap?Zu:Zo,U=swap?Zo:Zu,bI=swap?a:b,aI=swap?b:a,t=swap?ez:tz,e=swap?tz:ez;
+          const olen=swap?ulen0:zlen,ulen=swap?zlen:ulen0,ux=swap?vx0:zx,uy=swap?vy0:zy;
+          const style=(O.cross&&O.cross[bI])||'';
+          if(!style)continue;
+          const wo=lineW(O,S),wu=lineW(U,S),R=Math.max(6,(wo+wu)/2+3);
           if(sbbs.some(bb=>cx>bb[0]-R-4&&cx<bb[2]+R+4&&cy>bb[1]-R-4&&cy<bb[3]+R+4))continue;
           if((BRIDGE_TYPES[style]||{}).kind==='hop'){
             const mO=R+wo/2+(O.r||0)+2,mU=wu/2+2;
             if(t<mO||t>olen-mO||e<mU||e>ulen-mU)continue;
             const E=slot(O.id);
-            if(E.hops.some(h=>h.seg===b&&Math.abs(h.t-t)<2*R+2))continue;
+            if(E.hops.some(h=>h.seg===bI&&Math.abs(h.t-t)<2*R+2))continue;
             const [nx,ny]=normNormal(ux,uy),bx=-nx,by=-ny;
-            E.hops.push({seg:b,t,R,ccw:!((bx*uy+by*(-ux))>0),cx,cy,a0:Math.atan2(-uy,-ux),a1:Math.atan2(uy,ux),w:wo});
+            E.hops.push({seg:bI,t,R,ccw:!((bx*uy+by*(-ux))>0),cx,cy,a0:Math.atan2(-uy,-ux),a1:Math.atan2(uy,ux),w:wo});
           }else{
             const gh=wo/2+Math.max(4,wu*0.4)+wu/2,mU=gh+2,mO=wo/2+2;
             if(e<mU||e>ulen-mU||t<mO||t>olen-mO)continue;
             const E=slot(U.id);
-            if(E.gaps.some(g=>g.seg===a&&Math.abs(g.t-e)<2*gh+2))continue;
-            E.gaps.push({seg:a,t:e,half:gh,cx,cy,w:wu});
+            if(E.gaps.some(g=>g.seg===aI&&Math.abs(g.t-e)<2*gh+2))continue;
+            E.gaps.push({seg:aI,t:e,half:gh,cx,cy,w:wu});
+            if((BRIDGE_TYPES[style]||{}).piers)slot(O.id).piers.push({cx,cy,ux,uy,wo,wu});   // 橋（上の線O）の両側に橋脚
           }
         }
       }
@@ -1364,12 +1561,56 @@ function computeCrossings(st){
   }
   return out;
 }
+// 左下の「路線一覧」（凡例）。キャンバス（台紙）の中に描き、画像・SVGの書き出しにも入る。路線のデータを読んで作るだけで、別のデータは持たない。
+// 路線がないときは何も描かない。クリックなどの操作の邪魔にならないよう、選べる要素にはしない（o:null）
+function legendPrims(st,P){
+  const S=st.s;
+  if(S.legend===false||!st.lines.length)return;
+  const k=S.scale||1,pad=14*k,rowH=30*k,swW=36*k,swH=10*k,gapX=10*k,fs=20*k,tFs=15*k,margin=24*k,colGap=26*k,titleH=26*k,maxTW=380*k;
+  const items=st.lines.map(L=>{const name=(L.name&&String(L.name).trim())||'（名称なし）',tw=measure(name,fs);return {name,color:L.color||S.lineColor,tw,sx:tw>maxTW?maxTW/tw:1};});
+  let bx0=0,by0=0,by1=S.canvasH,rowsPer=items.length;
+  if(S.canvasFixed){
+    const availH=S.canvasH-margin*2-pad*2-titleH;
+    rowsPer=Math.max(1,Math.min(items.length,Math.floor(availH/rowH)));   // 台紙に収まらないときは、列を増やす
+  }else{
+    const cb=bounds(P,S);if(!cb)return;
+    bx0=cb.x;by1=cb.y+cb.h+margin*2+titleH+pad*2+rowH*items.length;
+  }
+  const cols=Math.ceil(items.length/rowsPer),colW=[];
+  for(let c=0;c<cols;c++){let m=0;for(let i=c*rowsPer;i<Math.min(items.length,(c+1)*rowsPer);i++)m=Math.max(m,items[i].tw*items[i].sx);colW.push(swW+gapX+m);}
+  const W=pad*2+colW.reduce((a,b)=>a+b,0)+colGap*(cols-1),H=pad*2+titleH+rowsPer*rowH;
+  const x=bx0+margin,y=by1-margin-H;
+  P.push({t:'rr',cx:x+W/2,cy:y+H/2,w:W-1.5,h:H-1.5,ow:W,oh:H,rot:0,r:10*k,fill:S.transparent?'#ffffff':(S.bg||'#ffffff'),stroke:'#c3c9ce',sw:1.5,o:null,legend:true,bb:[x,y,x+W,y+H]});
+  const tw0=measure('路線一覧',tFs);
+  P.push({t:'tx',x:x+pad,y:y+pad+titleH/2-2*k,s:'路線一覧',size:tFs,c:'#5b6670',anchor:'start',sx:1,rot:0,o:null,legend:true,bb:[x+pad,y+pad,x+pad+tw0,y+pad+titleH]});
+  let cx=x+pad;
+  for(let c=0;c<cols;c++){
+    for(let i=c*rowsPer,r=0;i<Math.min(items.length,(c+1)*rowsPer);i++,r++){
+      const it=items[i],cy=y+pad+titleH+r*rowH+rowH/2;
+      P.push({t:'rr',cx:cx+swW/2,cy,w:swW,h:swH,ow:swW,oh:swH,rot:0,r:swH/2,fill:it.color,stroke:null,sw:0,o:null,legend:true,bb:[cx,cy-swH/2,cx+swW,cy+swH/2]});
+      const tx=cx+swW+gapX,w=it.tw*it.sx;
+      P.push({t:'tx',x:tx,y:cy,s:it.name,size:fs,c:S.labelColor,anchor:'start',sx:it.sx,rot:0,o:null,legend:true,bb:[tx,cy-fs/2,tx+w,cy+fs/2]});
+    }
+    cx+=colW[c]+colGap;
+  }
+}
 function build(st){
   st=st||state;
   const S=st.s,P=[];
   const crMap=computeCrossings(st);
   for(const L of lineOrder(st)){
-    const w=L.width!=null?L.width:S.lineWidth,cr=crMap.get(L.id),hops=cr&&cr.hops.length?cr.hops:null,gaps=cr&&cr.gaps.length?cr.gaps:null;
+    const w=lineW(L,S),cr=crMap.get(L.id),hops=cr&&cr.hops.length?cr.hops:null,gaps=cr&&cr.gaps.length?cr.gaps:null;
+    // 橋脚: 橋（この線）の線路の下に「|」を2本。その間を下の線路が通る。この線の線より先（下）に描くので、橋が上に見える
+    if(cr&&cr.piers&&cr.piers.length){
+      const kk=S.scale||1;
+      for(const pr of cr.piers){
+        const thick=Math.max(2.5*kk,pr.wo*0.28),len=pr.wo+12*kk,d=pr.wu/2+5*kk+thick/2,rot=Math.atan2(pr.uy,pr.ux)*180/Math.PI+90;
+        for(const sgn of [-1,1]){
+          const cx=pr.cx+pr.ux*d*sgn,cy=pr.cy+pr.uy*d*sgn;
+          P.push({t:'rr',cx,cy,w:thick,h:len,ow:thick,oh:len,rot:Math.atan2(pr.uy,pr.ux)*180/Math.PI,r:Math.min(1.5,thick/2),fill:'#373C3F',stroke:null,sw:0,o:null,pier:true,bb:rotBB(cx,cy,thick,len,Math.atan2(pr.uy,pr.ux)*180/Math.PI)});
+        }
+      }
+    }
     let bb=bbPts(L.pts,w/2);
     if(hops)for(const h of hops){
       bb=[Math.min(bb[0],h.cx-h.R-w),Math.min(bb[1],h.cy-h.R-w),Math.max(bb[2],h.cx+h.R+w),Math.max(bb[3],h.cy+h.R+w)];
@@ -1392,10 +1633,6 @@ function build(st){
     P.push({t:'rr',cx:tag.x,cy:tag.y,w,h,ow:w,oh:h,rot:0,r:h/2,fill:bg,stroke:null,sw:0,o:null,bb:rotBB(tag.x,tag.y,w,h,0)});
     P.push({t:'tx',x:tag.x,y:tag.y,s:tag.text,size:tagSize,c:fg,anchor:'middle',sx:1,rot:0,o:null,bb:[tag.x-tw/2,tag.y-tagSize/2,tag.x+tw/2,tag.y+tagSize/2]});
   }
-  for(const e of lineNameSpots(st)){
-    const tw=measure(e.text,e.size);
-    P.push({t:'tx',x:e.x,y:e.y,s:e.text,size:e.size,c:contrastColor(e.color),anchor:'middle',sx:1,rot:e.ang,o:null,bb:rotBB(e.x,e.y,tw,e.size,e.ang)});
-  }
   for(const nb of numberBadges(st)){
     const d=nb.d,w=nb.w,sw=nb.sw;
     const r=nb.shape==='square'?Math.min(5,d*0.14):d/2;
@@ -1406,6 +1643,10 @@ function build(st){
     const size=t.size||S.labelSize,w=measure(t.text||'',size);
     P.push({t:'tx',x:t.x,y:t.y,s:t.text||'',size,c:t.color||S.labelColor,anchor:'middle',sx:1,rot:0,o:{k:'text',id:t.id},bb:[t.x-w/2,t.y-size/2,t.x+w/2,t.y+size/2]});
   }
+  for(const e of lineNameSpots(st,P)){   // 路線名（線のわき・平行）。ほかの要素を避けるため、最後に置く
+    P.push({t:'tx',x:e.x,y:e.y,s:e.text,size:e.size,c:readableOnWhite(e.color),anchor:'middle',sx:1,rot:e.ang,o:null,lineName:true,bb:e.bb});
+  }
+  legendPrims(st,P);
   return P;
 }
 function bounds(P,S){
@@ -1466,10 +1707,31 @@ function drawPrims(x,P){
     }
   }
 }
-function toSVG(P,B,S,scale){
+// 要素が書き出し範囲Bにかかっているか（台紙内のみの書き出しで、台紙の外にしかない要素を出力から外すために使う）
+function primTouches(p,B){
+  let x0,y0,x1,y1;
+  if(p.t==='poly'){
+    if(!p.pts||!p.pts.length)return false;
+    x0=Infinity;y0=Infinity;x1=-Infinity;y1=-Infinity;
+    for(const q of p.pts){x0=Math.min(x0,q[0]);y0=Math.min(y0,q[1]);x1=Math.max(x1,q[0]);y1=Math.max(y1,q[1]);}
+    const m=(p.w||0)/2+(p.r||0);x0-=m;y0-=m;x1+=m;y1+=m;
+  }else if(p.t==='arc'){const m=(p.r||0)+(p.w||0);x0=p.cx-m;y0=p.cy-m;x1=p.cx+m;y1=p.cy+m;}
+  else if(p.t==='rr'){const m=((p.w||0)+(p.h||0))/2;x0=p.cx-m;y0=p.cy-m;x1=p.cx+m;y1=p.cy+m;}
+  else if(p.t==='tx'){
+    const len=String(p.s||'').length,W=(p.size||0)*Math.max(1,len)*(p.sx||1),H=(p.size||0)*1.3;
+    const m=p.rot?Math.max(W,H):0;
+    const ax=p.anchor==='middle'?p.x-W/2:(p.anchor==='end'?p.x-W:p.x);
+    x0=(p.rot?p.x-m:ax);x1=(p.rot?p.x+m:ax+W);y0=(p.rot?p.y-m:p.y);y1=(p.rot?p.y+m:p.y+H);
+  }else return true;
+  return x1>=B.x&&x0<=B.x+B.w&&y1>=B.y&&y0<=B.y+B.h;
+}
+// onlyInside: 台紙内のみ → 範囲にまったくかからない要素は、viewBoxで隠すのではなく、出力データから外す
+function toSVG(P,B,S,scale,onlyInside){
+  if(onlyInside)P=P.filter(p=>primTouches(p,B));
   const n=v=>+(+v).toFixed(2),sc=scale>0?scale:1;
   const o=[];
   o.push('<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+n(B.x)+' '+n(B.y)+' '+n(B.w)+' '+n(B.h)+'" width="'+n(B.w*sc)+'" height="'+n(B.h*sc)+'">');
+  o.push(SVG_FONT_STYLE);
   if(!S.transparent)o.push('<rect x="'+n(B.x)+'" y="'+n(B.y)+'" width="'+n(B.w)+'" height="'+n(B.h)+'" fill="'+esc(S.bg)+'"/>');
   for(const p of P){
     if(p.t==='poly'){
@@ -1491,8 +1753,25 @@ function toSVG(P,B,S,scale){
   o.push('</svg>');
   return o.join('\n');
 }
+// 書き出す範囲: 「台紙内のみ」＝台紙の大きさ／「全要素を含む範囲」＝台紙の外も含めて、あるものすべて（余白つき）
+function exportBounds(P){
+  const S=state.s;
+  if(prefs.expRange==='all')return bounds(P,Object.assign({},S,{canvasFixed:false}));
+  return bounds(P,S);
+}
+// PNGを描く前に、Sen・Sawarabi Gothic が読み込まれるのを待つ（最大2秒。読み込めなければ、代わりのフォントで描く）
+async function ensureFonts(){
+  try{
+    if(!document.fonts||!document.fonts.load)return;
+    await Promise.race([Promise.all([document.fonts.load('28px "Sawarabi Gothic"','あ路線図'),document.fonts.load('28px Sen','Ab12'),document.fonts.ready]),new Promise(r=>setTimeout(r,2000))]);
+  }catch(_){}
+}
+function exportSVGText(){
+  const P=build(),B=exportBounds(P);if(!B)return null;
+  return toSVG(P,B,state.s,prefs.scale,prefs.expRange!=='all');
+}
 function exportCanvas(scale){
-  const P=build(),S=state.s,B=bounds(P,S);
+  const P=build(),S=state.s,B=exportBounds(P);
   if(!B)return null;
   scale=Math.max(0.5,scale);
   scale=Math.min(scale,8192/B.w,8192/B.h);
@@ -1566,6 +1845,72 @@ function laneGuides(){
   }
   return out;
 }
+// 駅の各レーンを、どの路線（とどの区間）が通っているか（空きレーンは line=null）
+function stationLaneInfo(s){
+  const S=state.s,gap=S.laneGap,ls=segs();
+  return laneSystems(s,S).map(sy=>{
+    const lanes=[];
+    for(let m=0;m<sy.count;m++){
+      const off=(m-(sy.count-1)/2)*gap,cx=s.x+sy.nx*off,cy=s.y+sy.ny*off;
+      let line=null,segIdx=-1;
+      for(const sg of ls){
+        if(Math.abs(sg.ux*sy.dy-sg.uy*sy.dx)>0.2)continue;
+        if(Math.abs((sg.ax-cx)*sy.nx+(sg.ay-cy)*sy.ny)>3)continue;
+        const t0=(sg.ax-s.x)*sy.dx+(sg.ay-s.y)*sy.dy,t1=t0+(sg.ux*sy.dx+sg.uy*sy.dy)*sg.len,l=Math.min(t0,t1),h=Math.max(t0,t1);
+        if(h>=-(sy.half+10)&&l<=sy.half+10){line=sg.L;segIdx=sg.i;break;}
+      }
+      lanes.push({m,cx,cy,line,segIdx});
+    }
+    return {sy,lanes};
+  });
+}
+// 駅を中心に、通っている線路の位置を図にする。線路そのものをタップして、その路線（空きなら新しい路線）を選ぶ
+function laneDiagram(s){
+  const S=state.s,info=stationLaneInfo(s);
+  if(!info.some(x=>x.lanes.length>=2))return '';
+  const hub=s.kind==='hub';
+  let cols=null,rows=null,colSi=0,rowSi=0;
+  info.forEach((x,si)=>{
+    const colLike=hub?(si===0):(Math.abs(x.sy.nx)>=Math.abs(x.sy.ny));   // レーンが横に並ぶ＝縦線の列
+    if(colLike){cols=x;colSi=si;}else{rows=x;rowSi=si;}
+  });
+  const n=cols?cols.lanes.length:1,m=rows?rows.lanes.length:1;
+  const spx=clamp(Math.floor(168/Math.max(n,1)),12,30),spy=clamp(Math.floor(110/Math.max(m,1)),12,30);
+  const bw=cols?(n-1)*spx:0,bh=rows?(m-1)*spy:0;
+  const W=Math.max(150,bw+76),H=Math.max(104,bh+76),cx0=W/2,cy0=H/2;
+  const extX=bw/2+34,extY=bh/2+34;
+  const sgx=cols?(Math.sign(cols.sy.nx)||1):1,sgy=rows?(Math.sign(rows.sy.ny)||1):1;   // キャンバスと同じ向きに並べる
+  const pill=hub?{w:bw+26,h:bh+26,r:12}:(cols?{w:bw+26,h:32,r:16}:{w:32,h:bh+26,r:16});
+  const selId=sel.size===1?[...sel][0]:'';
+  let g='<rect x="'+(cx0-pill.w/2)+'" y="'+(cy0-pill.h/2)+'" width="'+pill.w+'" height="'+pill.h+'" rx="'+pill.r+'" style="fill:var(--field);stroke:var(--ink)" stroke-width="2"/>';
+  const lane=(si,k,ln,x1,y1,x2,y2,hx,hy,hw,hh)=>{
+    const occ=!!ln.line,col=occ?(ln.line.color||S.lineColor):'#9aa3a8',pressed=occ&&selId==='line:'+ln.line.id;
+    const name=occ?lineLabel(ln.line):'空きレーン（タップで路線を追加）';
+    return '<g data-lane="'+si+':'+k+'" role="button" tabindex="0" aria-label="'+esc(name)+'" aria-pressed="'+pressed+'" style="cursor:pointer"><title>'+esc(name)+'</title>'
+      +(pressed?'<rect x="'+(hx-1)+'" y="'+(hy-1)+'" width="'+(hw+2)+'" height="'+(hh+2)+'" rx="6" fill="none" style="stroke:var(--guide)" stroke-width="2" stroke-dasharray="4 3"/>':'')
+      +'<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+esc(col)+'" stroke-width="'+(occ?6:2.5)+'" stroke-linecap="round"'+(occ?'':' stroke-dasharray="4 4"')+'/>'
+      +'<rect x="'+hx+'" y="'+hy+'" width="'+hw+'" height="'+hh+'" fill="transparent" style="pointer-events:all"/></g>';
+  };
+  if(cols)cols.lanes.forEach((ln,k)=>{const x=cx0+sgx*(k-(n-1)/2)*spx,hw=Math.max(spx,24);g+=lane(colSi,k,ln,x,cy0-extY,x,cy0+extY,x-hw/2,cy0-extY-4,hw,extY*2+8);});
+  if(rows)rows.lanes.forEach((ln,k)=>{const y=cy0+sgy*(k-(m-1)/2)*spy,hh=Math.max(spy,24);g+=lane(rowSi,k,ln,cx0-extX,y,cx0+extX,y,cx0-extX-4,y-hh/2,extX*2+8,hh);});
+  return '<div class="row"><label>線路の位置</label><div class="lanefig"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="group" aria-label="駅を通る線路の位置">'+g+'</svg></div></div>'
+    +'<p class="note" style="margin-top:-4px">図の線路をタップすると、その路線を選べます。破線は空きレーンで、タップすると路線を追加します。</p>';
+}
+function laneTap(spec){
+  const o=singleSel();if(!o||o.k!=='st')return;
+  const [si,m]=String(spec).split(':').map(Number);
+  const inf=stationLaneInfo(o.obj)[si],ln=inf&&inf.lanes[m];
+  if(!ln)return;
+  if(ln.line){
+    sel=new Set(['line:'+ln.line.id]);selVi=-1;selWhole=false;selSeg={id:ln.line.id,i:ln.segIdx>=0?ln.segIdx:0};
+    onSelChange();requestRender();revealSel();toast('「'+lineLabel(ln.line)+'」を選びました');
+  }else{
+    const sy=inf.sy,gap=state.s.laneGap,reach=gap*3+sy.half;
+    addLaneLine({s:o.obj,m,x1:ln.cx-sy.dx*reach,y1:ln.cy-sy.dy*reach,x2:ln.cx+sy.dx*reach,y2:ln.cy+sy.dy*reach});
+  }
+}
+$('#insp').addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-lane]');if(t)laneTap(t.getAttribute('data-lane'));});
+$('#insp').addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('[data-lane]');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();laneTap(t.getAttribute('data-lane'));}});
 function guideAt(p,tolPx){
   const tol=(tolPx||7)/view.k;let best=null,bd=tol;
   for(const g of laneGuides()){
@@ -1575,7 +1920,7 @@ function guideAt(p,tolPx){
   return best;
 }
 function addLaneLine(g){
-  const L={id:nid(),mode:'mid',k:null,z:nextZ(),pts:[[half(g.x1),half(g.y1)],[half(g.x2),half(g.y2)]],color:null,width:null,r:0,name:'',dash:null,cross:null,numShape:''};
+  const L=Object.assign({id:nid(),z:nextZ(),pts:[[half(g.x1),half(g.y1)],[half(g.x2),half(g.y2)]],color:null,r:0,name:'',dash:null,cross:null,numShape:''},newLineStyle());
   state.lines.push(L);sel=new Set(['line:'+L.id]);selVi=-1;selSeg=null;
   commit();onSelChange();requestRender();toast('空きレーンに路線を追加しました');
 }
@@ -1924,7 +2269,8 @@ function defaultsForAng(st){
 /* ================= history / persistence ================= */
 function snapshot(){return JSON.stringify(state);}
 function commit(key){
-  ssStamp++;
+  ssStamp++;altCands=null;
+  if(state.cx&&state.cx.length){const n=pruneCx(state);if(n)toast('交差の上下の設定を'+n+'件外しました（線の形が変わって、その交差がなくなったため）');}
   const js=snapshot(),now=Date.now();
   if(key&&key===lastKey&&now-lastT<800&&hist.i===hist.s.length-1&&hist.i>0){hist.s[hist.i]=js;}
   else{
@@ -1936,6 +2282,7 @@ function commit(key){
 }
 function scheduleSave(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>lsSet(LS_KEY,snapshot()),250);}
 function loadJSON(js,keepSel){
+  altCands=null;
   let o;try{o=JSON.parse(js);}catch(_){return false;}
   state=normalize(o);ssStamp++;
   const keep=new Set();
@@ -1950,7 +2297,7 @@ function updateUndo(){
   $$('[data-cmd="undo"]').forEach(b=>{b.disabled=hist.i<=0;});
   $$('[data-cmd="redo"]').forEach(b=>{b.disabled=hist.i>=hist.s.length-1;});
 }
-function savePrefs(){lsSet(LS_PREF,JSON.stringify({scale:prefs.scale,fmt:prefs.fmt,lanes:prefs.lanes,align:prefs.align,manualLanes:prefs.manualLanes,hubX:prefs.hubX,hubY:prefs.hubY,sideH:prefs.sideH,uiScale:prefs.uiScale,saveHistory:prefs.saveHistory,member:prefs.member,showGrid:prefs.showGrid,showGuides:prefs.showGuides,theme:prefs.theme,view:prefs.view,snap:snapOn}));}
+function savePrefs(){lsSet(LS_PREF,JSON.stringify({scale:prefs.scale,fmt:prefs.fmt,lanes:prefs.lanes,align:prefs.align,manualLanes:prefs.manualLanes,hubX:prefs.hubX,hubY:prefs.hubY,expRange:prefs.expRange,sideH:prefs.sideH,uiScale:prefs.uiScale,saveHistory:prefs.saveHistory,member:prefs.member,showGrid:prefs.showGrid,showGuides:prefs.showGuides,theme:prefs.theme,view:prefs.view,snap:snapOn}));}
 
 /* ================= canvas / view ================= */
 const cv=$('#cv'),ctx=cv.getContext('2d'),stage=$('#stage'),insp=$('#insp');
@@ -2056,7 +2403,7 @@ function drawPreview(){
       const pts=drawing.pts.map(p=>[p[0],p[1]]);
       if(hoverPt)pts.push(hoverPt);
       if(pts.length>=2){
-        const E0=drawing.ext?getL(drawing.ext.id):null;ctx.globalAlpha=0.8;ctx.lineWidth=S.lineWidth;ctx.strokeStyle=(E0&&E0.color)||S.lineColor;ctx.lineCap='round';ctx.lineJoin='round';
+        const E0=drawing.ext?getL(drawing.ext.id):null;ctx.globalAlpha=0.8;ctx.lineWidth=(E0?lineW(E0,S):curVals(S).lw*(S.scale||1));ctx.strokeStyle=(E0&&E0.color)||S.lineColor;ctx.lineCap='round';ctx.lineJoin='round';
         ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.stroke();
       }
     }
@@ -2109,6 +2456,8 @@ function render(){
     ctx.restore();
   }
   drawSel(P);
+  drawCxMarks();
+  drawAlts();
   if(ovGuides.length){
     ctx.save();ctx.strokeStyle=css.guide;ctx.globalAlpha=0.55;ctx.lineWidth=1.5/view.k;ctx.setLineDash([6/view.k,5/view.k]);
     for(const g of ovGuides){ctx.beginPath();ctx.moveTo(g[0],g[1]);ctx.lineTo(g[2],g[3]);ctx.stroke();}
@@ -2203,7 +2552,7 @@ function detectDbl(e){
 }
 function cap(e){try{cv.setPointerCapture(e.pointerId);}catch(_){}}
 function withSnap(e,fn){
-  const prev=snapOn;if(e&&e.altKey)snapOn=false;
+  const prev=snapOn;if(e&&e.altKey&&!(drag&&drag.altDup))snapOn=false;   // Alt+ドラッグ複製のときは、吸着を外さない
   try{return fn();}finally{snapOn=prev;}
 }
 /* ---- 路線の重なり防止（吸着とは別の処理） ----
@@ -2220,7 +2569,7 @@ function segOverlap(a0,a1,b0,b1,tolDist){
   const s0=(b0[0]-a0[0])*ux+(b0[1]-a0[1])*uy,s1=(b1[0]-a0[0])*ux+(b1[1]-a0[1])*uy;
   return Math.min(al,Math.max(s0,s1))-Math.max(0,Math.min(s0,s1))>6;
 }
-const lineW=L=>L.width!=null?L.width:state.s.lineWidth;
+
 function overlapPairs(polys,ignore){
   const pairs=[];
   for(const P of polys)for(let i=0;i<P.pts.length-1;i++)for(const O of state.lines){
@@ -2251,8 +2600,61 @@ function avoidOverlap(polys,ignore){
     const moved=polys.map(P=>({w:P.w,pts:P.pts.map(q=>[q[0]+c[0],q[1]+c[1]])}));
     if(!overlapPairs(moved,ignore).length)return {pairs,shift:[c[0],c[1]],blocked:false};
   }
-  return {pairs,shift:null,blocked:true};
+  // 隣のレーンにはどこにも空きがない: もっと離れた空き位置を、近い順に最大3つ探す（置き直しの候補）
+  const far=[];
+  for(const d of dirs)for(let k=4;k<=14;k++)far.push([d[0]*(g*k-d[2]),d[1]*(g*k-d[2]),k],[d[0]*(-g*k-d[2]),d[1]*(-g*k-d[2]),k]);
+  far.sort((a,b)=>Math.hypot(a[0],a[1])-Math.hypot(b[0],b[1]));   // 実際に動かす距離が近い順
+  const alts=[];
+  for(const c of far){
+    if(alts.length>=3)break;
+    const moved=polys.map(P=>({w:P.w,pts:P.pts.map(q=>[q[0]+c[0],q[1]+c[1]])}));
+    if(!overlapPairs(moved,ignore).length&&!alts.some(a=>Math.hypot(a[0]-c[0],a[1]-c[1])<g*0.5))alts.push([c[0],c[1]]);
+  }
+  return {pairs,shift:null,blocked:true,alts};
 }
+// ---- 代替位置の提示 ----
+// 重なりを避けられなかったとき、置ける場所の候補を破線で見せる（最大3つ）。タップするとそこへ移動する。何もしなければ、そのまま。
+let altCands=null;   // {items:[{pts:[[x,y],…],chip:[x,y],apply()}]}
+function showAlts(items,msg){
+  altCands=null;
+  if(!items.length)return false;
+  altCands={items};requestRender();
+  toast(msg+'（候補は破線の①〜'+['①','②','③'][items.length-1]+'。タップするとそこへ移動します）');
+  return true;
+}
+function clearAlts(){if(altCands){altCands=null;requestRender();}}
+function altHit(p){
+  if(!altCands)return -1;
+  const tolChip=16/view.k,tolLine=9/view.k;
+  for(let i=0;i<altCands.items.length;i++){
+    const it=altCands.items[i];
+    if(Math.hypot(p.x-it.chip[0],p.y-it.chip[1])<=tolChip)return i;
+    for(let j=0;j<it.pts.length-1;j++){
+      const a=it.pts[j],b=it.pts[j+1],dx=b[0]-a[0],dy=b[1]-a[1],l2=dx*dx+dy*dy||1,t=clamp(((p.x-a[0])*dx+(p.y-a[1])*dy)/l2,0,1);
+      if(Math.hypot(p.x-(a[0]+dx*t),p.y-(a[1]+dy*t))<=tolLine)return i;
+    }
+  }
+  return -1;
+}
+function drawAlts(){
+  if(!altCands)return;
+  ctx.save();
+  altCands.items.forEach((it,i)=>{
+    ctx.strokeStyle=css.guide;ctx.globalAlpha=0.9;ctx.lineWidth=3/view.k;ctx.setLineDash([9/view.k,6/view.k]);
+    ctx.beginPath();it.pts.forEach((q,j)=>j?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=css.guide;ctx.beginPath();ctx.arc(it.chip[0],it.chip[1],12/view.k,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#ffffff';ctx.font=(13/view.k)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(i+1),it.chip[0],it.chip[1]+0.5/view.k);
+  });
+  ctx.restore();
+}
+function shiftSel(dx,dy){
+  for(const key of sel){
+    const o=getObj(key);if(!o)continue;
+    if(o.k==='line')o.obj.pts=o.obj.pts.map(q=>[q[0]+dx,q[1]+dy]);else{o.obj.x+=dx;o.obj.y+=dy;}
+  }
+  ssStamp++;
+}
+function polyMid(pts){let L=0;for(let i=0;i<pts.length-1;i++)L+=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);let t=L/2;for(let i=0;i<pts.length-1;i++){const d=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);if(t<=d||i===pts.length-2){const f=d?t/d:0;return [pts[i][0]+(pts[i+1][0]-pts[i][0])*f,pts[i][1]+(pts[i+1][1]-pts[i][1])*f];}t-=d;}return pts[0];}
 // 動かしている間に出す、レーン間隔のガイド（重なった相手の路線の左右）
 let ovGuides=[];
 function setOvGuides(pairs){
@@ -2292,6 +2694,7 @@ const ptrs=new Map();
 let pinch=null,touchIgnore=false,lastPointerType='mouse',gestureStart=null;
 document.addEventListener('pointerdown',e=>{lastPointerType=e.pointerType||'mouse';},true);
 function cancelDrag(){
+  lastMoveEv=null;
   if(drag&&(drag.type==='move'||drag.type==='vertex'||drag.type==='seg')&&(drag.started||drag.moved))loadJSON(hist.s[hist.i],true);
   drag=null;pinch=null;hoverPt=null;guides=[];ovGuides=[];
   onSelChange();requestRender();
@@ -2315,6 +2718,7 @@ function startPinch(){
 }
 function onDown(e){
   if(popEl){closeMenu();return;}
+  if(altCands){const ai=altHit(evWorld(e));if(ai>=0){const it=altCands.items[ai];altCands=null;it.apply();return;}clearAlts();}
   if(e.pointerType==='touch'){
     if(touchIgnore)return;
     ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
@@ -2404,15 +2808,17 @@ function finishLine(){
         else{E.pts.unshift(...add.slice().reverse());if(E.dash)E.dash.unshift(...add.map(()=>0));if(E.cross)E.cross.unshift(...add.map(()=>''));}
         sel=new Set(['line:'+E.id]);selVi=-1;selSeg=null;commit();onSelChange();
       }else{
-        let np=pts,note=null;
+        let np=pts,note=null,alt=null;
         if(snapOn){
-          const ov=avoidOverlap([{pts,w:state.s.lineWidth}],new Set());
+          const ov=avoidOverlap([{pts,w:curVals(state.s).lw*(state.s.scale||1)}],new Set());
           if(ov.shift){np=pts.map(q=>[q[0]+ov.shift[0],q[1]+ov.shift[1]]);note='既存の路線と重なるため、隣のレーンへ寄せました';}
-          else if(ov.blocked)note='既存の路線と重なる位置です。左右どちらにも空きがないため、重なったまま置きました';
+          else if(ov.blocked){note='既存の路線と重なる位置です。左右どちらにも空きがないため、重なったまま置きました';alt=ov.alts||[];}
         }
-        const L={id:nid(),mode:'mid',k:null,z:nextZ(),pts:np,color:null,width:null,r:0,name:'',dash:null,cross:null,numShape:''};
+        const L=Object.assign({id:nid(),z:nextZ(),pts:np,color:null,r:0,name:'',dash:null,cross:null,numShape:''},newLineStyle());
         state.lines.push(L);sel=new Set(['line:'+L.id]);selVi=-1;selSeg=null;commit();onSelChange();
-        if(note)toast(note);
+        if(alt&&alt.length){
+          showAlts(alt.map(a=>{const pp=L.pts.map(q=>[q[0]+a[0],q[1]+a[1]]);return {pts:pp,chip:polyMid(pp),apply(){L.pts=L.pts.map(q=>[q[0]+a[0],q[1]+a[1]]);commit('alt');onSelChange();requestRender();toast('候補の位置へ移動しました（元に戻すで戻せます）');}};}),'既存の路線と重なる位置です。左右どちらにも空きがありません');
+        }else if(note)toast(note);
       }
     }
   }
@@ -2422,6 +2828,7 @@ function placeStation(e,p){
   const kind=tool==='hub'?'hub':'st';
   const st={id:0,kind,x:0,y:0,ang:0,lanes:prefs.lanes,text:'',pos:'right',vert:false,autoLabel:true,align:prefs.align||'center',nums:{},lineIds:[]};
   if(kind==='hub'){st.lanesX=prefs.hubX;st.lanesY=prefs.hubY;st.alignX='center';st.alignY='center';}
+  Object.assign(st,newStationStyle());
   withSnap(e,()=>snapStation(st,p));
   st.id=nid();
   st.text=kind==='hub'?'駅名':'駅名';
@@ -2569,7 +2976,7 @@ function beginMove(e,p){
       else{const [nx,ny]=normalOf(o.obj),off=anchorOffset(o.obj,state.s);anchor0={x:o.obj.x+nx*off,y:o.obj.y+ny*off};}
     }
   }
-  drag={type:'move',start:p,sx:e.clientX,sy:e.clientY,started:false,snap0,anchor0};cap(e);
+  drag={type:'move',start:p,sx:e.clientX,sy:e.clientY,started:false,snap0,anchor0,altDup:!!e.altKey};cap(e);
 }
 function addVertex(id,p){
   const L=getL(id);if(!L)return;
@@ -2590,6 +2997,46 @@ function addVertex(id,p){
   sel=new Set(['line:'+id]);selVi=bi+1;selSeg=null;selWhole=false;
   commit();onSelChange();requestRender();
 }
+// ---- 画面端の処理 ----
+// (1) ドラッグ（移動・折れ点・区間・範囲選択）が画面の端に近づいたら、画面を自動で送る
+// (2) 選んだもの・動かしたものが画面の外や、作成ツールの下に隠れたら、見える位置まで画面を寄せる（拡大縮小はしない）
+let lastMoveEv=null,edgeRAF=0;
+const EDGE=28;
+function edgeVec(e){
+  const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let vx=0,vy=0;
+  if(x<EDGE)vx=-(EDGE-x)/EDGE;else if(x>r.width-EDGE)vx=(x-(r.width-EDGE))/EDGE;
+  if(y<EDGE)vy=-(EDGE-y)/EDGE;else if(y>r.height-EDGE)vy=(y-(r.height-EDGE))/EDGE;
+  return [clamp(vx,-1,1),clamp(vy,-1,1)];
+}
+function isDragging(){return !!(drag&&drag.type!=='pan'&&drag.type!=='pinch'&&(drag.started||drag.moved||drag.type==='marquee'));}
+function edgeTick(){
+  if(!lastMoveEv||!isDragging()){edgeRAF=0;return;}
+  const [vx,vy]=edgeVec(lastMoveEv);if(!vx&&!vy){edgeRAF=0;return;}
+  edgeRAF=-1;   // onMove の中で、もう1つ予約しない（予約が増えると、送る速さが倍々になる）
+  const sp=14;view.x-=vx*sp;view.y-=vy*sp;
+  onMove(lastMoveEv);requestRender();
+  edgeRAF=requestAnimationFrame(edgeTick);
+}
+function revealSel(){
+  if(!sel.size)return;
+  const P=build();let bb=null;
+  for(const p of P){if(p.o&&p.bb&&sel.has(p.o.k+':'+p.o.id))bb=bb?[Math.min(bb[0],p.bb[0]),Math.min(bb[1],p.bb[1]),Math.max(bb[2],p.bb[2]),Math.max(bb[3],p.bb[3])]:p.bb.slice();}
+  if(!bb)return;
+  const r=cv.getBoundingClientRect(),m=10;
+  let x0=bb[0]*view.k+view.x,y0=bb[1]*view.k+view.y,x1=bb[2]*view.k+view.x,y1=bb[3]*view.k+view.y;
+  const pal=document.getElementById('palette');let pr=null;
+  if(pal&&!document.body.classList.contains('hide-left')&&getComputedStyle(pal).display!=='none'){const q=pal.getBoundingClientRect();pr={l:q.left-r.left,t:q.top-r.top,r:q.right-r.left,b:q.bottom-r.top};}
+  let dx=0,dy=0;
+  if(x0<m)dx=m-x0;else if(x1>r.width-m)dx=(r.width-m)-x1;
+  if(y0<m)dy=m-y0;else if(y1>r.height-m)dy=(r.height-m)-y1;
+  if(x1-x0>r.width-2*m)dx=m-x0;if(y1-y0>r.height-2*m)dy=m-y0;   // 画面より大きいときは、左上を見せる
+  x0+=dx;x1+=dx;y0+=dy;y1+=dy;
+  if(pr&&!(x1<=pr.l||x0>=pr.r||y1<=pr.t||y0>=pr.b)){   // 作成ツールの下にあるときは、右か下へ（近いほう）ずらす
+    const toRight=pr.r+m-x0,toDown=pr.b+m-y0,okR=x1+toRight<=r.width-m,okD=y1+toDown<=r.height-m;
+    if(okR&&(!okD||toRight<=toDown))dx+=toRight;else if(okD)dy+=toDown;else dx+=toRight;
+  }
+  if(dx||dy){view.x+=dx;view.y+=dy;requestRender();}
+}
 function onMove(e){
   if(e.pointerType==='touch'){
     if(ptrs.has(e.pointerId))ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
@@ -2605,6 +3052,8 @@ function onMove(e){
   }
   const p=evWorld(e);
   $('#coord').textContent='x '+Math.round(p.x)+'  y '+Math.round(p.y);
+  lastMoveEv=e;
+  if(isDragging()){const [vx,vy]=edgeVec(e);if((vx||vy)&&!edgeRAF)edgeRAF=requestAnimationFrame(edgeTick);}
   if(drag){
     if(drag.type==='pan'){view.x=drag.vx+(e.clientX-drag.sx);view.y=drag.vy+(e.clientY-drag.sy);requestRender();return;}
     if(drag.type==='marquee'){drag.b=p;requestRender();return;}
@@ -2663,7 +3112,16 @@ function onMove(e){
       syncFields();requestRender();return;
     }
     if(drag.type==='move'){
-      if(!drag.started){if(Math.hypot(e.clientX-drag.sx,e.clientY-drag.sy)<3)return;drag.started=true;}
+      if(!drag.started){
+        if(Math.hypot(e.clientX-drag.sx,e.clientY-drag.sy)<3)return;
+        drag.started=true;
+        if(drag.altDup&&!drag.dupDone){   // Alt+ドラッグ: 元の場所にそのまま残し、コピーのほうを動かす（履歴は移動と同じ1回）
+          duplicateSel({off:0,noCommit:true});drag.dupDone=true;
+          const snap0=new Map();
+          for(const key of sel){const o=getObj(key);if(!o)continue;if(o.k==='line')snap0.set(key,o.obj.pts.map(q=>[q[0],q[1]]));else snap0.set(key,{x:o.obj.x,y:o.obj.y});}
+          drag.snap0=snap0;
+        }
+      }
       let dx=p.x-drag.start.x,dy=p.y-drag.start.y;
       const keys=[...sel];
       withSnap(e,()=>{
@@ -2718,6 +3176,7 @@ function onMove(e){
   }
 }
 function onUp(e){
+  lastMoveEv=null;
   if(e.pointerType==='touch'){
     ptrs.delete(e.pointerId);
     if(drag&&drag.type==='pinch'){
@@ -2743,15 +3202,47 @@ function onUp(e){
   const d=drag;drag=null;
   try{cv.releasePointerCapture(e.pointerId);}catch(_){}
   if(d.type==='pan')cv.style.cursor=space||tool==='pan'?'grab':'';
-  if(d.type==='move'&&d.started){commit('move');renderInspector();}
+  if(d.type==='move'&&d.started){commit('move');renderInspector();revealSel();}
   else if(d.type==='vertex'&&d.moved){
-    commit('vertex');renderInspector();
-    if(overlapPairs([{pts:d.L.pts,w:lineW(d.L)}],new Set([d.L.id])).length)toast('既存の路線と重なっています（元に戻すで戻せます）');
+    commit('vertex');renderInspector();revealSel();
+    {
+      const L=d.L,vi=d.i,ig=new Set([L.id]);
+      if(overlapPairs([{pts:L.pts,w:lineW(L)}],ig).length){
+        // 折れ点の移動先の候補: 隣のレーンの方向へ、近い順に（折れ点のまわりの線が、どこにも重ならない位置）
+        const g=state.s.laneGap,cur=L.pts[vi],c=[];
+        for(const pr of overlapPairs([{pts:L.pts,w:lineW(L)}],ig)){
+          const dx=pr.b[1][0]-pr.b[0][0],dy=pr.b[1][1]-pr.b[0][1],l=Math.hypot(dx,dy)||1,nx=-dy/l,ny=dx/l,off=(cur[0]-pr.b[0][0])*nx+(cur[1]-pr.b[0][1])*ny;
+          for(let k=1;k<=8;k++)for(const sg of [1,-1]){const t=sg*g*k-off;c.push([cur[0]+nx*t,cur[1]+ny*t,Math.abs(t)]);}
+        }
+        c.sort((a,b)=>a[2]-b[2]);
+        const okc=[];
+        for(const q of c){
+          if(okc.length>=3)break;
+          const pts=L.pts.map((p2,ix)=>ix===vi?[q[0],q[1]]:p2);
+          if(!overlapPairs([{pts,w:lineW(L)}],ig).length&&!okc.some(o=>Math.hypot(o[0]-q[0],o[1]-q[1])<g*0.5))okc.push(q);
+        }
+        const items=okc.map(q=>({pts:[[q[0]-10,q[1]],[q[0]+10,q[1]]],chip:[q[0],q[1]],apply(){L.pts[vi]=[q[0],q[1]];commit('alt');onSelChange();requestRender();toast('候補の位置へ移動しました（元に戻すで戻せます）');}}));
+        if(items.length)showAlts(items,'折れ点が既存の路線と重なっています');
+        else toast('既存の路線と重なっています（元に戻すで戻せます）');
+      }
+    }
   }
   else if(d.type==='seg'&&d.started){commit('seg');renderInspector();}
   else if(d.type==='marquee')finishMarquee(d);
   if(d&&(d.type==='move'||d.type==='seg')&&d.started){
-    if(d.blocked)toast('既存の路線と重なる位置です。左右どちらにも空きがないため、重なったまま置きました（元に戻すで戻せます）');
+    let altItems=[];
+    if(d.blocked){
+      if(d.type==='move'){
+        const ls=[...sel].filter(k=>k.startsWith('line:')).map(k=>getL(+k.slice(5))).filter(Boolean);
+        const ov=ls.length?avoidOverlap(ls.map(L=>({pts:L.pts,w:lineW(L)})),new Set(ls.map(L=>L.id))):null;
+        if(ov&&ov.blocked&&ov.alts)altItems=ov.alts.map(a=>{const pp=ls[0].pts.map(q=>[q[0]+a[0],q[1]+a[1]]);return {pts:pp,chip:polyMid(pp),apply(){shiftSel(a[0],a[1]);commit('alt');onSelChange();requestRender();toast('候補の位置へ移動しました（元に戻すで戻せます）');}};});
+      }else{
+        const L=d.L,i=d.i,ov=avoidOverlap([{pts:[L.pts[i],L.pts[i+1]],w:lineW(L)}],new Set([L.id]));
+        if(ov.blocked&&ov.alts)altItems=ov.alts.map(a=>{const pp=[[L.pts[i][0]+a[0],L.pts[i][1]+a[1]],[L.pts[i+1][0]+a[0],L.pts[i+1][1]+a[1]]];return {pts:pp,chip:polyMid(pp),apply(){L.pts[i]=pp[0];L.pts[i+1]=pp[1];commit('alt');onSelChange();requestRender();toast('候補の位置へ移動しました（元に戻すで戻せます）');}};});
+      }
+    }
+    if(d.blocked&&altItems.length)showAlts(altItems,'既存の路線と重なる位置です。左右どちらにも空きがありません');
+    else if(d.blocked)toast('既存の路線と重なる位置です。左右どちらにも空きがないため、重なったまま置きました（元に戻すで戻せます）');
     else if(d.ovShift)toast('既存の路線と重なるため、隣のレーンへ寄せました（Altを押しながらだと寄せません）');
   }
   guides=[];ovGuides=[];requestRender();
@@ -2790,9 +3281,9 @@ function deleteSel(){
   state.texts=state.texts.filter(t=>!sel.has('text:'+t.id));
   sel=new Set();selVi=-1;selSeg=null;selWhole=false;commit();onSelChange();requestRender();
 }
-function duplicateSel(){
+function duplicateSel(opts){
   if(!sel.size)return;
-  const ns=new Set(),off=state.s.grid>0?state.s.grid*4:20,idMap=new Map();
+  const ns=new Set(),off=(opts&&opts.off!=null)?opts.off:(state.s.grid>0?state.s.grid*4:20),idMap=new Map();
   for(const L of state.lines.slice())if(sel.has('line:'+L.id)){
     const c=JSON.parse(JSON.stringify(L));c.id=nid();c.z=nextZ();c.pts=c.pts.map(p=>[p[0]+off,p[1]+off]);state.lines.push(c);ns.add('line:'+c.id);idMap.set(L.id,c.id);
   }
@@ -2805,8 +3296,44 @@ function duplicateSel(){
   for(const t of state.texts.slice())if(sel.has('text:'+t.id)){
     const c=JSON.parse(JSON.stringify(t));c.id=nid();c.x+=off;c.y+=off;state.texts.push(c);ns.add('text:'+c.id);
   }
-  sel=ns;selVi=-1;commit();onSelChange();requestRender();
+  sel=ns;selVi=-1;if(!(opts&&opts.noCommit))commit();onSelChange();requestRender();
 }
+// コピー＆貼り付け: 選択中の路線・駅・文字を覚えておき、貼り付けるたびに少しずつずらして新しく置く（複製と同じ仕組みを使う）
+let clipboard=null,pasteCount=0;
+function copySel(){
+  if(!sel.size){toast('コピーするものを選んでください');return false;}
+  const lines=[],stations=[],texts=[];
+  for(const L of state.lines)if(sel.has('line:'+L.id))lines.push(JSON.parse(JSON.stringify(L)));
+  for(const s of state.stations)if(sel.has('st:'+s.id))stations.push(JSON.parse(JSON.stringify(s)));
+  for(const t of state.texts)if(sel.has('text:'+t.id))texts.push(JSON.parse(JSON.stringify(t)));
+  const n=lines.length+stations.length+texts.length;
+  if(!n){toast('コピーできるものが選ばれていません');return false;}
+  clipboard={lines,stations,texts};pasteCount=0;
+  updatePasteBtn();
+  toast(n+'個をコピーしました（貼り付けは Ctrl+V またはボタン）');
+  return true;
+}
+function pasteClip(){
+  if(!clipboard){toast('先にコピーしてください');return;}
+  pasteCount++;
+  const step=state.s.grid>0?state.s.grid*4:20,off=step*pasteCount,ns=new Set(),idMap=new Map();
+  for(const L of clipboard.lines){
+    const c=JSON.parse(JSON.stringify(L));c.id=nid();c.z=nextZ();c.pts=c.pts.map(p=>[p[0]+off,p[1]+off]);state.lines.push(c);ns.add('line:'+c.id);idMap.set(L.id,c.id);
+  }
+  for(const s of clipboard.stations){
+    const c=JSON.parse(JSON.stringify(s));c.id=nid();c.x+=off;c.y+=off;
+    // 所属・駅番号は、いっしょに貼り付けた路線にだけ付け替える（コピー元の路線を勝手に引き継がない）
+    c.lineIds=(c.lineIds||[]).map(id=>idMap.get(id)).filter(Boolean);
+    const nums={};for(const k of Object.keys(c.nums||{}))if(idMap.has(+k))nums[idMap.get(+k)]=c.nums[k];c.nums=nums;
+    state.stations.push(c);ns.add('st:'+c.id);
+  }
+  for(const t of clipboard.texts){
+    const c=JSON.parse(JSON.stringify(t));c.id=nid();c.x+=off;c.y+=off;state.texts.push(c);ns.add('text:'+c.id);
+  }
+  sel=ns;selVi=-1;selSeg=null;selWhole=false;commit();onSelChange();requestRender();revealSel();
+  toast(ns.size+'個を貼り付けました');
+}
+function updatePasteBtn(){$$('[data-cmd="paste"]').forEach(b=>{b.disabled=!clipboard;});}
 function selectAll(){
   sel=new Set();
   for(const L of state.lines)sel.add('line:'+L.id);
@@ -2854,7 +3381,7 @@ function updateHint(){
   const S=state.s;
   $('#modeChip').textContent=(MODE_NAME[tool]||'')+'モード';
   const h={
-    select:'クリックで選択、ドラッグで移動。線は「点と点の間の区間」、折れ点は「点」として選べます。何もない所のドラッグは範囲選択（Shiftで追加）、線のダブルクリックで折れ点を追加できます。',
+    select:'クリックで選択、ドラッグで移動（Altを押しながらで複製）。線は「点と点の間の区間」、折れ点は「点」として選べます。何もない所のドラッグは範囲選択（Shiftで追加）、線のダブルクリックで折れ点を追加できます。',
     marquee:'ドラッグで囲んだ範囲を選択します。Shiftで追加選択。',
     erase:'駅・路線・文字をクリックすると削除します。',
     line:drawing?'クリックで点を追加、ダブルクリックかEnterで確定。Backspaceで1点戻る。Shiftで自由な角度。':'クリックで始点を置きます。45°刻みに揃い、既存の線・駅・レーン位置に吸い付きます。既存路線の端から始めると延伸か新規かを選べます。',
@@ -2877,8 +3404,26 @@ const inDir=(a,cur,o)=>{
   const b=(v,l,area)=>'<button type="button" data-a="'+a+'" data-v="'+v+'" aria-pressed="'+(String(cur)===String(v))+'" style="grid-area:'+area+'" title="'+(o.names&&o.names[v]||l)+'">'+l+'</button>';
   return '<div class="dirpad" role="group">'+b('top','上','1 / 2')+b('left','左','2 / 1')+(o.center?b(o.center[0],o.center[1],'2 / 2'):'')+b('right','右','2 / 3')+b('bottom','下','3 / 2')+'</div>';
 };
+// 横書き・縦書き: 状態が分かる2つのボタン（文字の向きの見本つき）
+const inWriting=(a,vert)=>'<div class="wr" role="group" aria-label="文字の向き">'
+  +'<button type="button" data-a="'+a+'" data-v="0" aria-pressed="'+(!vert)+'" title="横書き"><span class="wsamp">あい</span><span>横書き</span></button>'
+  +'<button type="button" data-a="'+a+'" data-v="1" aria-pressed="'+(!!vert)+'" title="縦書き"><span class="wsamp v">あい</span><span>縦書き</span></button></div>';
+// 揃え（左・中央・右／上・中央・下）: 実際の配置結果を模した見本をボタンにする。
+//   opts: [[値,ラベル,位置0〜2],…]  vertical=true なら縦に並べる（上・中央・下）
+function alignIcon(vertical,idx,square){
+  const lane=[9,15,21][idx],ln=[0,1,2].map(i=>[9,15,21][i]);
+  if(vertical){   // レーンが縦に並ぶ（横線が3本）: 縦長の駅マーカー
+    return '<svg viewBox="0 0 40 30" class="aic" aria-hidden="true"><rect x="'+(square?9:14)+'" y="'+(square?3:3)+'" width="'+(square?22:12)+'" height="24" rx="'+(square?7:6)+'" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+      +ln.map(y=>'<line x1="3" y1="'+y+'" x2="37" y2="'+y+'" stroke="currentColor" stroke-width="1" opacity=".35"/>').join('')
+      +'<line x1="3" y1="'+lane+'" x2="37" y2="'+lane+'" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>';
+  }
+  const x=[12,20,28][idx],lx=[12,20,28];   // レーンが横に並ぶ（縦線が3本）: 横長の駅マーカー
+  return '<svg viewBox="0 0 40 30" class="aic" aria-hidden="true"><rect x="4" y="'+(square?4:9)+'" width="32" height="'+(square?22:12)+'" rx="'+(square?7:6)+'" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+    +lx.map(v=>'<line x1="'+v+'" y1="2" x2="'+v+'" y2="28" stroke="currentColor" stroke-width="1" opacity=".35"/>').join('')
+    +'<line x1="'+x+'" y1="2" x2="'+x+'" y2="28" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>';
+}
+const inAlign=(a,opts,cur,vertical,square)=>'<div class="al'+(vertical?' v':'')+'" role="group">'+opts.map(([v,l,i])=>'<button type="button" data-a="'+a+'" data-v="'+v+'" aria-pressed="'+(String(v)===String(cur))+'" title="'+l+'">'+alignIcon(vertical,i,square)+'<span>'+l+'</span></button>').join('')+'</div>';
 const inVSeg=(a,opts,cur)=>'<div class="vseg" role="group">'+opts.map(([v,l])=>'<button type="button" data-a="'+a+'" data-v="'+v+'" aria-pressed="'+(String(v)===String(cur))+'">'+l+'</button>').join('')+'</div>';
-const inSel=(a,opts,cur)=>'<select data-a="'+a+'">'+opts.map(([v,l])=>'<option value="'+v+'"'+(String(v)===String(cur)?' selected':'')+'>'+l+'</option>').join('')+'</select>';
 const NUMPOS_LABEL={between:'駅と駅名の間',inside:'駅の中（通常駅のみ・枠なし）',left:'駅の左',right:'駅の右',top:'駅の上',bottom:'駅の下'};
 const inSeg=(a,opts,cur,numeric)=>'<div class="seg" role="group">'+opts.map(([v,l])=>'<button type="button" data-a="'+a+'" data-v="'+v+'"'+(numeric?' data-t="n"':'')+' aria-pressed="'+(String(v)===String(cur))+'">'+l+'</button>').join('')+'</div>';
 const inChk=(a,v,l)=>'<label class="chk"><input type="checkbox" data-a="'+a+'"'+(v?' checked':'')+'> '+l+'</label>';
@@ -2887,7 +3432,7 @@ const swatchRows=(cur,attr)=>{
   return '<div class="swrow" role="group" aria-label="色のテンプレート">'+[PRESET_COLORS.slice(0,6),PRESET_COLORS.slice(6,12),PRESET_COLORS.slice(12)].map(r=>'<div class="swl">'+r.map(p=>'<button type="button" class="sw" '+attr(p)+' style="background:'+p+'"'+(p.toLowerCase()===c?' data-cur="1"':'')+' aria-label="'+p+'"></button>').join('')+'</div>').join('')+'</div>';
 };
 const swatchRow=(a,cur)=>swatchRows(cur,p=>'data-a="'+a+'" data-v="'+p+'"');
-const selActions=()=>'<div class="btns"><button type="button" class="mini" data-act="dup">複製</button><button type="button" class="mini danger" data-act="del">削除</button></div>';
+const selActions=()=>'<div class="btns"><button type="button" class="mini" data-act="copy">コピー</button><button type="button" class="mini" data-act="dup">複製</button><button type="button" class="mini danger" data-act="del">削除</button></div>';
 
 // レーン数: UIは1〜4のまま。「手動入力」で99まで数値入力できる
 function lanesControl(path,lanes,withNum){
@@ -2929,16 +3474,18 @@ function stSection(s){
     h+=hubLanesControl('st.lanesX','レーン数 横',l.x)+hubLanesControl('st.lanesY','レーン数 縦',l.y);
     h+='<div class="row"><label></label><label class="chk"><input type="checkbox" data-pref="manualLanes"'+((prefs.manualLanes||l.x>4||l.y>4)?' checked':'')+((l.x>4||l.y>4)?' disabled':'')+'> 手動入力（最大'+MAXL+'）</label></div>';
     h+='<p class="note" style="margin:0 0 8px">ハブ駅は全方向から路線が来る前提で、レーン数を横・縦それぞれ指定できます（1×1から）。</p>';
-    if(l.x>1)h+='<div class="row"><label>横の揃え</label>'+inSeg('st.alignX',[['start','左'],['center','中央'],['end','右']],s.alignX||'center')+'</div>';
-    if(l.y>1)h+='<div class="row"><label>縦の揃え</label>'+inVSeg('st.alignY',[['start','上'],['center','中央'],['end','下']],s.alignY||'center')+'</div>';
+    if(l.x>1)h+='<div class="row"><label>横の揃え</label>'+inAlign('st.alignX',[['start','左',0],['center','中央',1],['end','右',2]],s.alignX||'center',false,true)+'</div>';
+    if(l.y>1)h+='<div class="row"><label>縦の揃え</label>'+inAlign('st.alignY',[['start','上',0],['center','中央',1],['end','下',2]],s.alignY||'center',true,true)+'</div>';
     if(l.x>1||l.y>1)h+='<p class="note" style="margin:0 0 8px">路線にスナップする列・行を選びます（ハブ駅の位置は動きません）。</p>';
-    h+='<div class="row"><label></label>'+inChk('st.vert',s.vert,'駅名を縦書きにする')+'</div>';
+    h+=laneDiagram(s);
+    h+='<div class="row"><label>文字の向き</label>'+inWriting('st.vert',s.vert)+'</div>';
     h+='<p class="note" style="margin:0 0 8px">駅名は枠に収まるよう自動で縮小されます。</p>';
   }else{
     h+=lanesControl('st.lanes',s.lanes||1,true);
     if((s.lanes||1)>1){
       const vertAxis=(s.ang||0)%180===0;
-      h+='<div class="row"><label>レーン揃え</label>'+(vertAxis?inVSeg('st.align',[['start','上'],['center','中央'],['end','下']],s.align||'center'):inSeg('st.align',[['end','左'],['center','中央'],['start','右']],s.align||'center'))+'</div>';
+      h+='<div class="row"><label>レーン揃え</label>'+(vertAxis?inAlign('st.align',[['start','上',0],['center','中央',1],['end','下',2]],s.align||'center',true):inAlign('st.align',[['end','左',0],['center','中央',1],['start','右',2]],s.align||'center',false))+'</div>';
+      h+=laneDiagram(s);
       h+='<p class="note" style="margin:0 0 8px">路線にスナップするレーンを選びます（駅の位置は動きません）。</p>';
     }
     h+='<div class="row"><label>線の向き</label>'+inSeg('st.ang',[[0,'横'],[90,'縦'],[135,'／'],[45,'＼']],s.ang,true)+'</div>';
@@ -2947,20 +3494,49 @@ function stSection(s){
     h+=s.autoLabel===false
       ?'<div class="row"><label></label><button type="button" class="mini" data-act="autolabel">自動配置に戻す</button></div>'
       :'<p class="note" style="margin:0 0 8px">他の文字と重なるときは自動で反対側に移動します。</p>';
-    if(eff!=='none')h+='<div class="row"><label></label>'+inChk('st.vert',s.vert,'縦書き')+'</div>';
+    if(eff!=='none')h+='<div class="row"><label>文字の向き</label>'+inWriting('st.vert',s.vert)+'</div>';
   }
   h+='<div class="g2">'+fld('X',inNum('st.x',s.x,{step:0.5}))+fld('Y',inNum('st.y',s.y,{step:0.5}))+'</div>';
+  h+=stSizeSection(s);
   return h+selActions()+'</section>';
 }
-// 距離モード（路線単位）と、駅間隔・駅マーカー・駅名の文字の個別設定
+// 路線の個別設定（駅間隔・路線幅）。モードは、この路線を作ったときのモード（標準値に戻すときの基準）
 function modeSection(L){
-  const S=state.s,f=lineFac(L);
-  let h='<div class="row"><label>距離モード</label>'+inSeg('line.mode',MODE_KEYS.map(k=>[k,MODES[k].name]),L.mode||'mid')+'</div>';
-  h+='<p class="note" style="margin:0 0 8px">'+MODE_KEYS.map(k=>MODES[k].name+'＝'+MODES[k].note).join('、')+'。長距離は駅間隔だけ2倍、短距離は駅間隔・駅マーカー・駅名の文字が1/2です。モードを切り替えると、下の個別設定はそのモードの標準値になります。</p>';
-  h+='<div class="g2">'+fld('駅間隔 (px)',inNum('linek.gap',r2(S.stGap*f.gap),{step:1,min:1}))+fld('駅マーカー 高さ (px)',inNum('linek.marker',r2(S.stH*f.marker),{step:1,min:2}))+'</div>';
-  h+='<div class="g2">'+fld('駅名の文字 (px)',inNum('linek.label',r2(S.labelSize*f.label),{step:0.5,min:4}))+'<div class="fld"><span>&nbsp;</span><button type="button" class="mini" data-act="kreset">モード標準に戻す</button></div></div>';
-  h+='<p class="note" style="margin:0 0 8px">駅マーカーと駅名の大きさは、この路線を「所属路線」の先頭にしている駅に反映されます。</p>';
+  const S=state.s,m=modeStd(L.mode),k=S.scale||1;
+  const gap=(L.gap>0?L.gap:m.gap)*k,w=(L.width!=null&&L.width>0?L.width:m.lw)*k;
+  let h='<div class="row"><label>距離モード</label><span class="modename"><b>'+esc(m.name)+'</b>　'+esc(m.note)+'</span></div>';
+  h+='<div class="g2">'+fld('駅間隔 (px)',inNum('line.gap',r2(gap),{step:1,min:1}))+fld('路線幅 (px)',inNum('line.width',r2(w),{step:0.5,min:1}))+'</div>';
+  h+='<div class="row"><label></label><button type="button" class="mini" data-act="lreset">'+esc(m.name)+'の標準値に戻す</button></div>';
+  h+='<p class="note" style="margin:0 0 8px">この路線の駅間隔（駅を置くときの間隔）と線の太さです。すでにある駅の大きさは変わりません。</p>';
   return h;
+}
+// 駅の個別設定（駅マーカーの幅・高さ、駅名の文字）
+function stSizeSection(s){
+  const S=state.s,k=S.scale||1,hub=s.kind==='hub';
+  const L=(s.lineIds&&s.lineIds.length)?state.lines.find(l=>l.id===s.lineIds[0]):null,m=modeStd(L?L.mode:S.mode);
+  const mw=(s.mw>0?s.mw:S.stW/k)*k,mh=(s.mh>0?s.mh:S.stH/k)*k,fs=(s.fs>0?s.fs:S.labelSize/k)*k;
+  let h='<div class="row"><label>大きさ</label><span class="note" style="margin:0">駅ごとの設定です</span></div>';
+  h+=hub?'<div class="g2">'+fld('駅マーカー 高さ (px)',inNum('st.mh',r2(mh),{step:1,min:2}))+fld('駅名の文字 (px)',inNum('st.fs',r2(fs),{step:0.5,min:4}))+'</div>'
+        :'<div class="g2">'+fld('駅マーカー 幅 (px)',inNum('st.mw',r2(mw),{step:1,min:2}))+fld('高さ (px)',inNum('st.mh',r2(mh),{step:1,min:2}))+'</div><div class="g2">'+fld('駅名の文字 (px)',inNum('st.fs',r2(fs),{step:0.5,min:4}))+'<div class="fld"><span>&nbsp;</span><button type="button" class="mini" data-act="sreset">'+esc(m.name)+'の標準値</button></div></div>';
+  if(hub)h+='<div class="row"><label></label><button type="button" class="mini" data-act="sreset">'+esc(m.name)+'の標準値に戻す</button></div>';
+  return h;
+}
+function segCrossings(L,i){
+  return listCrossings(state).filter(k=>(k.segO.id===L.id&&k.segO.i===i)||(k.segU.id===L.id&&k.segU.i===i))
+    .map(k=>{const mine=(k.segO.id===L.id&&k.segO.i===i)?k.segO:k.segU,A=L.pts[i],B=L.pts[i+1],len=Math.hypot(B[0]-A[0],B[1]-A[1])||1;return Object.assign({},k,{along:((k.x-A[0])*(B[0]-A[0])+(k.y-A[1])*(B[1]-A[1]))/len,otherId:k.a===L.id?k.b:k.a});})
+    .sort((p,q)=>p.along-q.along);
+}
+function drawCxMarks(){
+  if(selWhole||!selSeg||sel.size!==1)return;
+  const L=getL(selSeg.id);if(!L||selSeg.i>=L.pts.length-1)return;
+  const list=segCrossings(L,selSeg.i);if(!list.length)return;
+  ctx.save();
+  list.forEach((k,n)=>{
+    ctx.strokeStyle=css.guide;ctx.lineWidth=2.5/view.k;ctx.globalAlpha=0.95;ctx.beginPath();ctx.arc(k.x,k.y,15/view.k,0,Math.PI*2);ctx.stroke();
+    ctx.fillStyle=css.guide;ctx.beginPath();ctx.arc(k.x+15/view.k,k.y-15/view.k,8/view.k,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#fff';ctx.font=(10/view.k)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(n+1),k.x+15/view.k,k.y-15/view.k+0.5/view.k);
+  });
+  ctx.restore();
 }
 function lineSection(L){
   const S=state.s,n=L.pts.length;
@@ -2984,6 +3560,19 @@ function lineSection(L){
         h+='<div class="row"><label class="lnlab"><i class="chip" style="background:'+esc(U.color||S.lineColor)+'"></i><span>'+esc(lineLabel(U))+'</span></label><div class="seg" role="group">'
           +'<button type="button" data-a="above.set" data-v="'+L.id+':'+U.id+'" aria-pressed="'+up+'">この線が上</button>'
           +'<button type="button" data-a="above.set" data-v="'+U.id+':'+L.id+'" aria-pressed="'+(!up)+'">'+esc(lineLabel(U))+'が上</button></div></div>';
+      }
+    }
+    {   // 交差ごとの上下: 2本の路線が何か所で交わっても、地点ごとに決められる（画面の ①② と対応）
+      const cxs=segCrossings(L,seg);
+      if(cxs.length){
+        h+='<div class="row"><label>交差ごと</label><span class="note" style="margin:0">地点ごとに、どちらを上にするか（図の①②…の位置）</span></div>';
+        cxs.forEach((k,n)=>{
+          const U=getL(k.otherId),mineOver=k.over===L.id,st='default';
+          h+='<div class="cxrow"><span class="cxno">'+(n+1)+'</span><span class="cxname"><i class="chip" style="background:'+esc((U&&U.color)||S.lineColor)+'"></i>'+esc(U?lineLabel(U):'路線')+'</span><div class="seg" role="group">'
+            +'<button type="button" data-a="cx.set" data-v="'+k.a+':'+k.b+':'+Math.round(k.x*100)/100+':'+Math.round(k.y*100)/100+':'+L.id+'" aria-pressed="'+(k.manual&&mineOver)+'">この線が上</button>'
+            +'<button type="button" data-a="cx.set" data-v="'+k.a+':'+k.b+':'+Math.round(k.x*100)/100+':'+Math.round(k.y*100)/100+':'+k.otherId+'" aria-pressed="'+(k.manual&&!mineOver)+'">相手が上</button>'
+            +'<button type="button" data-a="cx.set" data-v="'+k.a+':'+k.b+':'+Math.round(k.x*100)/100+':'+Math.round(k.y*100)/100+':0" aria-pressed="'+(!k.manual)+'" title="路線ごとの上下（重なり順）に従う">路線の順</button></div></div>';
+        });
       }
     }
     h+='<div class="btns"><button type="button" class="mini" data-act="segall">路線全体を選択</button></div></section>';
@@ -3020,9 +3609,35 @@ function grp(id,title,body){return '<details class="grp" data-g="'+id+'"'+(openG
 function colorField(path,label,val){
   return '<div class="cfield"><div class="row"><label>'+label+'</label>'+inCol(path,val)+'</div>'+swatchRow(path,val)+'</div>';
 }
+// 描画モード: 区切りのあるスライダー（近距離〜超遠距離）。これから置く駅・路線に使う。すでにあるものは変えない
+function modeBoxHTML(){
+  const S=state.s,k=S.scale||1,c=curVals(S),m=modeStd(S.mode),idx=Math.max(0,MODE_KEYS.indexOf(MODES[S.mode]?S.mode:'mid'));
+  return '<section class="sec" id="modeBox"><h2>描画モード</h2>'
+    +'<input type="range" id="modeRange" min="0" max="'+(MODE_KEYS.length-1)+'" step="1" value="'+idx+'" aria-label="描画モード" aria-valuetext="'+esc(m.name)+'">'
+    +'<div class="modeticks" aria-hidden="true">'+MODE_KEYS.map((q,i)=>'<span'+(i===idx?' class="on"':'')+'>'+esc(MODES[q].name)+'</span>').join('')+'</div>'
+    +'<div class="modename" id="modeName"><b>'+esc(m.name)+'</b>　'+esc(m.note)+'</div>'
+    +'<p class="note" style="margin:4px 0 8px">これから置く駅・路線に使います。すでにあるものは変わりません。切り替えると、下の個別設定はそのモードの標準値になります。</p>'
+    +'<div class="g2">'+fld('駅間隔 (px)',inNum('cur.gap',r2(c.gap*k),{step:1,min:1}))+fld('路線幅 (px)',inNum('cur.lw',r2(c.lw*k),{step:0.5,min:1}))+'</div>'
+    +'<div class="g2">'+fld('駅マーカー 幅 (px)',inNum('cur.mw',r2(c.mw*k),{step:1,min:2}))+fld('高さ (px)',inNum('cur.mh',r2(c.mh*k),{step:1,min:2}))+'</div>'
+    +'<div class="g2">'+fld('駅名の文字 (px)',inNum('cur.fs',r2(c.fs*k),{step:0.5,min:4}))+'<div class="fld"><span>&nbsp;</span><button type="button" class="mini" data-act="creset">標準値に戻す</button></div></div></section>';
+}
+function refreshModeBox(){
+  const S=state.s,k=S.scale||1,c=curVals(S),m=modeStd(S.mode),idx=Math.max(0,MODE_KEYS.indexOf(MODES[S.mode]?S.mode:'mid'));
+  const nm=$('#modeName');if(nm)nm.innerHTML='<b>'+esc(m.name)+'</b>　'+esc(m.note);
+  const r=$('#modeRange');if(r){r.value=String(idx);r.setAttribute('aria-valuetext',m.name);}
+  $$('#modeBox .modeticks span').forEach((e,i)=>e.classList.toggle('on',i===idx));
+  for(const key of ['gap','lw','mw','mh','fs']){const el=document.querySelector('#modeBox input[data-a="cur.'+key+'"]');if(el)el.value=String(r2(c[key]*k));}
+}
+$('#insp').addEventListener('input',e=>{
+  const el=e.target;if(!el||el.id!=='modeRange')return;
+  const key=MODE_KEYS[clamp(Math.round(+el.value),0,MODE_KEYS.length-1)];
+  if(state.s.mode!==key){state.s.mode=key;state.s.cur=null;commit('mode');}   // 既存の駅・路線は動かさず、大きさも変えない
+  refreshModeBox();
+});
 function settingsHTML(){
   const S=state.s;
-  let h='<section class="sec" style="border-bottom:0;padding-bottom:6px"><h2>スタイル</h2><p class="note" style="margin:0">全体の色などです。台紙サイズ・吸着・ガイドは「設定 → ボード設定」にあります。</p></section>';
+  let h=modeBoxHTML();
+  h+='<section class="sec" style="border-bottom:0;padding-bottom:6px"><h2>スタイル</h2><p class="note" style="margin:0">全体の色などです。台紙サイズ・吸着・ガイドは「設定 → ボード設定」にあります。</p></section>';
   h+=grp('colors','色',
     colorField('S.lineColor','路線の色',S.lineColor)
     +colorField('S.stInk','駅の線色',S.stInk)
@@ -3067,6 +3682,14 @@ function setField(path,val){
   const [sc,key]=path.split('.');
   ssStamp++;
   if(sc==='proj'){state.name=String(val==null?'':val);updateProjName();requestRender();return;}
+  if(sc==='cx'){   // 交差ごとの上下: 「2路線のID:位置:上にする路線（0＝路線ごとの順に戻す）」
+    const [lo,hi,x,y,over]=String(val).split(':').map(Number);
+    state.cx=(state.cx||[]).filter(c=>!(c.a===lo&&c.b===hi&&Math.hypot(c.x-x,c.y-y)<=CX_TOL));
+    if(over)state.cx.push({a:lo,b:hi,x,y,over});
+    const L1=getL(over);
+    toast(over?((L1?lineLabel(L1):'路線')+'を、この交差で上にしました'):'この交差を、路線ごとの順に戻しました');
+    requestRender();renderInspector();return;
+  }
   if(sc==='above'){
     const [u,d]=String(val).split(':').map(Number);
     if(placeAbove(u,d)){const U=getL(u);toast((U?lineLabel(U):'路線')+'を上にしました');}
@@ -3081,22 +3704,23 @@ function setField(path,val){
     }
     requestRender();return;
   }
-  if(sc==='linek'){
-    const o=singleSel();
-    if(o&&o.k==='line'&&Number.isFinite(val)&&val>0){
-      const S=state.s,map={gap:'stGap',marker:'stH',label:'labelSize'},base=S[map[key]];
-      if(base>0){
-        const L=o.obj,m=MODES[L.mode]||MODES.mid,f=val/base,def=m[key];
-        L.k=L.k||{gap:null,marker:null,label:null};
-        L.k[key]=Math.abs(f-def)<1e-6?null:f;
-        if(!L.k.gap&&!L.k.marker&&!L.k.label)L.k=null;
-      }
+  if(sc==='cur'){   // いまの個別設定（これから置くものに使う）。盤の倍率をかける前の値で持つ
+    const S=state.s,k=S.scale||1;
+    if(['gap','mw','mh','lw','fs'].includes(key)&&Number.isFinite(val)&&val>0){
+      const c=Object.assign({},S.cur||{}),u=val/k;
+      if(Math.abs(u-modeStd(S.mode)[key])<1e-6)delete c[key];else c[key]=u;
+      S.cur=Object.keys(c).length?c:null;
     }
+    return;
+  }
+  if(sc==='line'&&(key==='gap'||key==='width')){
+    const o=singleSel();
+    if(o&&o.k==='line'&&Number.isFinite(val)&&val>0)o.obj[key]=val/(state.s.scale||1);
     requestRender();return;
   }
-  if(sc==='line'&&key==='mode'){
+  if(sc==='st'&&(key==='mw'||key==='mh'||key==='fs')){
     const o=singleSel();
-    if(o&&o.k==='line'&&MODE_KEYS.includes(val)){o.obj.mode=val;o.obj.k=null;}   // 切り替えると、個別設定はモードの標準値で上書き
+    if(o&&o.k==='st'&&Number.isFinite(val)&&val>0){o.obj[key]=val/(state.s.scale||1);ssStamp++;}
     requestRender();return;
   }
   if(sc==='seg'){
@@ -3165,6 +3789,8 @@ function setField(path,val){
     }else if(sc==='st'&&(key==='lanesX'||key==='lanesY')){
       if(!Number.isFinite(val))return;
       changeHubLanes(ob,key,val);
+    }else if(sc==='st'&&key==='vert'){
+      ob.vert=(val===true||val==='1'||val===1);
     }else if(sc==='st'&&key==='kind'){
       ob.kind=val==='hub'?'hub':'st';
       if(ob.kind==='hub'){
@@ -3201,9 +3827,12 @@ insp.addEventListener('click',e=>{
     const a=b.dataset.act;
     if(a==='del')runCmd('del');
     else if(a==='dup')duplicateSel();
+    else if(a==='copy')copySel();
     else if(a==='linecolor'){const o=singleSel();if(o&&o.k==='line'){o.obj.color=null;commit();renderInspector();requestRender();}}
-    else if(a==='resetfmt'){const cw=state.s.canvasFixed,fw=state.s.canvasW,fh=state.s.canvasH;const fm=state.s.format;state.s=Object.assign({},FORMAT,{format:fm,canvasFixed:cw,canvasW:fw,canvasH:fh});state.s.grid=FORMATS[fm].grid;applyScale(state.s);commit();renderInspector();requestRender();toast('フォーマットを初期値に戻しました');}
-    else if(a==='kreset'){const o=singleSel();if(o&&o.k==='line'){o.obj.k=null;ssStamp++;commit();renderInspector();requestRender();toast('個別設定を消して、モードの標準値に戻しました');}}
+    else if(a==='resetfmt'){const cw=state.s.canvasFixed,fw=state.s.canvasW,fh=state.s.canvasH;const fm=state.s.format;state.s=Object.assign({},FORMAT,{format:fm,canvasFixed:cw,canvasW:fw,canvasH:fh});state.s.grid=FORMATS[fm].grid;applyScale(state.s);commit();renderInspector();requestRender();toast('ボード設定を初期値に戻しました');}
+    else if(a==='lreset'){const o=singleSel();if(o&&o.k==='line'){o.obj.gap=null;o.obj.width=null;commit();renderInspector();requestRender();toast(modeStd(o.obj.mode).name+'の標準値に戻しました');}}
+    else if(a==='sreset'){const o=singleSel();if(o&&o.k==='st'){const S=state.s,L=(o.obj.lineIds&&o.obj.lineIds.length)?state.lines.find(l=>l.id===o.obj.lineIds[0]):null,m=modeStd(L?L.mode:S.mode);o.obj.mw=m.mw;o.obj.mh=m.mh;o.obj.fs=m.fs;ssStamp++;commit();renderInspector();requestRender();toast(m.name+'の標準値に戻しました');}}
+    else if(a==='creset'){state.s.cur=null;commit();renderInspector();toast(modeStd(state.s.mode).name+'の標準値に戻しました');}
     else if(a==='nearmemb'){const o=singleSel();if(o&&o.k==='st'){o.obj.lineIds=stationLines(o.obj,state).map(l=>l.id);ssStamp++;commit();renderInspector();requestRender();toast(o.obj.lineIds.length?'近くの路線（'+o.obj.lineIds.length+'本）を所属にしました':'近くに路線がありません');}}
     else if(a.startsWith('z:')){const o=singleSel();if(o&&o.k==='line'&&reorderLine(o.obj.id,a.slice(2))){commit();renderInspector();requestRender();toast({back:'最背面にしました',down:'ひとつ背面へ動かしました',up:'ひとつ前面へ動かしました',front:'最前面にしました'}[a.slice(2)]||'重なり順を変えました');}}
     else if(a==='segall'){selSeg=null;selVi=-1;selWhole=true;onSelChange();}
@@ -3223,7 +3852,8 @@ insp.addEventListener('click',e=>{
 insp.addEventListener('toggle',e=>{const d=e.target;if(d&&d.dataset&&d.dataset.g)openG[d.dataset.g]=d.open;},true);
 
 /* ================= keyboard ================= */
-function isTyping(t){return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT'||t.isContentEditable);}
+// 文字を入力する欄だけがショートカットを止める。スライダー・チェック・ボタンにフォーカスがあっても、元に戻すなどは使える
+function isTyping(t){return t&&((t.tagName==='INPUT'&&!['range','checkbox','radio','button','color','submit','reset','file'].includes(t.type))||t.tagName==='TEXTAREA'||t.tagName==='SELECT'||t.isContentEditable);}
 function dialogOpen(){return $$('dialog').some(d=>d.open);}
 document.addEventListener('keydown',e=>{
   const t=e.target;
@@ -3233,10 +3863,13 @@ document.addEventListener('keydown',e=>{
     return;
   }
   if(dialogOpen())return;
+  if(t&&t.tagName==='INPUT'&&t.type==='range'&&e.key.startsWith('Arrow'))return;   // スライダーの矢印キーは、そのまま値を動かす
   const mod=e.ctrlKey||e.metaKey,key=e.key,lk=key.length===1?key.toLowerCase():key;
   if(mod&&lk==='z'){e.preventDefault();e.shiftKey?redo():undo();return;}
   if(mod&&lk==='y'){e.preventDefault();redo();return;}
   if(mod&&lk==='d'){e.preventDefault();duplicateSel();return;}
+  if(mod&&lk==='c'){e.preventDefault();copySel();return;}
+  if(mod&&lk==='v'){e.preventDefault();pasteClip();return;}
   if(mod&&lk==='a'){e.preventDefault();selectAll();return;}
   if(mod&&lk==='s'){e.preventDefault();saveProject();return;}
   if(mod)return;
@@ -3249,6 +3882,7 @@ document.addEventListener('keydown',e=>{
   }
   if(key==='Enter'){if(drawing){e.preventDefault();finishLine();}return;}
   if(key==='Escape'){
+    if(altCands){clearAlts();return;}
     if(drag&&(drag.started||drag.moved)){cancelDrag();toast('操作を取り消しました');return;}
     if(drawing)finishLine();
     else if(tool!=='select')setTool('select');
@@ -3310,11 +3944,12 @@ function hideDlg(d){if(typeof d.close==='function')d.close();else d.removeAttrib
 const dlgE=$('#dlgExport');
 function updateExportInfo(){
   if(!state)return;
-  const B=bounds(build(),state.s);
+  const B=exportBounds(build());
   if(!B){$('#expInfo').textContent='';return;}
   const svg=prefs.fmt==='svg';
   const sc=prefs.scale;
-  let t='編集データの大きさ '+B.w+' × '+B.h+' px → '+(svg?'SVGの表示サイズ ':'PNG ')+Math.round(B.w*sc)+' × '+Math.round(B.h*sc)+' px（'+sc+'倍）。倍率を変えても、編集データの駅間隔や大きさは変わりません。';
+  let t='範囲: '+(prefs.expRange==='all'?'全要素を含む範囲':'台紙内のみ')+'。編集データの大きさ '+B.w+' × '+B.h+' px → '+(svg?'SVGの表示サイズ ':'PNG ')+Math.round(B.w*sc)+' × '+Math.round(B.h*sc)+' px（'+sc+'倍）。倍率を変えても、編集データの駅間隔や大きさは変わりません。';
+  if(prefs.expRange!=='all'&&state.s.canvasFixed){const cb=bounds(build(),Object.assign({},state.s,{canvasFixed:false,margin:0}));if(cb&&(cb.x<-0.5||cb.y<-0.5||cb.x+cb.w>B.w+0.5||cb.y+cb.h>B.h+0.5))t+=' 台紙の外にはみ出している要素があり、台紙内のみでは切れます。';}
   if(svg)t+='。SVGにフォントは埋め込まれません。表示するにはSenとSawarabi Gothicが必要です。';
   if(!dl)t+=' この画面では保存ボタンを使えない場合があります。その時はプレビューを長押し（右クリック）で保存してください。';
   $('#expInfo').textContent=t;
@@ -3323,6 +3958,8 @@ function refreshExport(){
   $$('#segFmt button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fmt===prefs.fmt)));
   $$('#segScale button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.scale===prefs.scale)));
   $('#fldScale').hidden=false;
+  const fixed=!!state.s.canvasFixed;
+  $$('#segRange button').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.range===(prefs.expRange==='all'?'all':'board')));if(b.dataset.range==='board'){b.disabled=!fixed;b.title=fixed?'':'台紙の大きさが固定されていないので、全要素の範囲になります';}});
   $('#btnCopyImg').hidden=prefs.fmt==='svg';
   $('#btnCopySvg').hidden=prefs.fmt!=='svg';
   $('#expMargin').value=state.s.margin;
@@ -3337,7 +3974,7 @@ function refreshExport(){
   requestRender();
 }
 function openExport(){
-  if(!bounds(build(),state.s)){toast('先に路線や駅を置いてください');return;}
+  if(!exportBounds(build())){toast('先に路線や駅を置いてください');return;}
   refreshExport();showDlg(dlgE);
 }
 $('#segFmt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;prefs.fmt=b.dataset.fmt;savePrefs();refreshExport();});
@@ -3349,22 +3986,25 @@ $('#expBgSw').addEventListener('click',e=>{const b=e.target.closest('button[data
 $('#expClose').addEventListener('click',()=>hideDlg(dlgE));
 $('#btnSave').addEventListener('click',async()=>{
   if(prefs.fmt==='svg'){
-    const P=build(),B=bounds(P,state.s);if(!B)return;
-    await saveBlob('rosenzu.svg',new Blob([toSVG(P,B,state.s,prefs.scale)],{type:'image/svg+xml'}));return;
+    const P=build(),B=exportBounds(P);if(!B)return;
+    await saveBlob('rosenzu.svg',new Blob([exportSVGText()],{type:'image/svg+xml'}));return;
   }
+  await ensureFonts();
   const r=exportCanvas(prefs.scale);if(!r)return;
   try{await saveBlob('rosenzu.png',await toBlob(r.canvas));}catch(_){toast('画像を作れませんでした。倍率を下げてお試しください');}
 });
 $('#btnCopyImg').addEventListener('click',async()=>{
+  await ensureFonts();
   const r=exportCanvas(prefs.scale);if(!r)return;
   try{
     const blob=await toBlob(r.canvas);
     await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);toast('画像をコピーしました');
   }catch(_){toast('コピーできませんでした。「保存」を使ってください');}
 });
+$('#segRange').addEventListener('click',e=>{const b=e.target.closest('button[data-range]');if(!b||b.disabled)return;prefs.expRange=b.dataset.range;savePrefs();refreshExport();});
 $('#btnCopySvg').addEventListener('click',async()=>{
-  const P=build(),B=bounds(P,state.s);if(!B)return;
-  try{await navigator.clipboard.writeText(toSVG(P,B,state.s,prefs.scale));toast('SVGをコピーしました');}
+  const P=build(),B=exportBounds(P);if(!B)return;
+  try{await navigator.clipboard.writeText(exportSVGText());toast('SVGをコピーしました');}
   catch(_){toast('コピーできませんでした。「保存」を使ってください');}
 });
 
@@ -3391,6 +4031,7 @@ function importText(txt){
   if(w.older)msgs.push('旧形式（v'+(numOr(o2&&o2.v,1))+'）のデータです。そのまま読み込みました。保存すると新しい形式（v'+DATA_VERSION+'）になります');
   if(w.newer)msgs.push('新しい形式のデータのため、一部が正しく読めない可能性があります');
   if(w.bad)msgs.push('存在しない路線への参照が'+w.bad+'件あり、外しました');
+  if(w.dupIds)msgs.push('路線のIDが重複していたため、'+w.dupIds.groups+'本に新しいIDを付けました。駅の所属・駅番号は、位置から1本に決まる'+w.dupIds.remapped+'件を付け替え、決まらない'+w.dupIds.dropped+'件を外しました（駅は残しています）');
   toast(msgs.length?'読み込みました（'+msgs.join('。')+'）':(restored?'読み込みました（履歴も復元しました）':'読み込みました'));
   return true;
 }
@@ -3412,7 +4053,8 @@ function renderTableRows(){
     +'<input type="text" class="tf-no" data-f="routeNo" placeholder="1" value="'+esc(r.routeNo)+'" inputmode="numeric">'
     +'<input type="text" data-f="routeName" placeholder="路線名/種別" value="'+esc(r.routeName)+'">'
     +'<input type="text" data-f="station" placeholder="駅名" value="'+esc(r.station)+'">'
-    +'<select data-f="mode" class="tf-mode" title="距離モード（その路線の最初に指定した行が使われます。空欄は、新しい路線は中距離、上書きするときは今のモードのまま）"><option value="">モード</option>'+MODE_KEYS.map(k=>'<option value="'+k+'"'+(r.mode===k?' selected':'')+'>'+MODES[k].name+'</option>').join('')+'</select>'
+    +'<input type="text" class="tf-num" data-f="num" placeholder="駅番号 (A01)" value="'+esc(r.num||'')+'" aria-label="駅番号" maxlength="12">'
+    +'<div class="tf-modeseg" role="group" aria-label="距離モード" title="距離モード（その路線の最初に指定した行が使われます。もう一度押すと未指定に戻ります。未指定は、新しい路線は中距離、上書きするときは今のモードのまま）">'+MODE_KEYS.map(k=>'<button type="button" data-fm="'+k+'" aria-pressed="'+(r.mode===k)+'">'+MODES[k].name.replace('距離','')+'</button>').join('')+'</div>'
     +'<label class="chk"><input type="checkbox" data-f="hub"'+(r.hub?' checked':'')+'> ハブ</label>'
     +'<button type="button" class="trow-del" data-del="'+r.id+'" aria-label="この行を削除">✕</button>'
     +'</div>'
@@ -3422,7 +4064,7 @@ function openTable(){renderTableRows();showDlg(dlgT);}
 $('#tblClose').addEventListener('click',()=>hideDlg(dlgT));
 $('#tblAddRow').addEventListener('click',()=>{
   const last=state.table[state.table.length-1];
-  state.table.push({id:nid(),routeNo:last?last.routeNo:'1',routeName:last?last.routeName:'',station:'',hub:false,mode:last?(last.mode||''):''});
+  state.table.push({id:nid(),routeNo:last?last.routeNo:'1',routeName:last?last.routeName:'',station:'',num:'',hub:false,mode:last?(last.mode||''):''});
   renderTableRows();scheduleSave();
   const rows=$$('.trow',tblRows),lastRow=rows[rows.length-1],inp=lastRow&&lastRow.querySelector('[data-f="station"]');
   if(inp)inp.focus();
@@ -3435,6 +4077,12 @@ tblRows.addEventListener('input',e=>{
   scheduleSave();
 });
 tblRows.addEventListener('click',e=>{
+  const fm=e.target.closest('button[data-fm]');
+  if(fm){
+    const row=fm.closest('.trow'),r=row&&state.table.find(x=>x.id===+row.dataset.id);
+    if(r){r.mode=(r.mode===fm.dataset.fm)?'':fm.dataset.fm;row.querySelectorAll('button[data-fm]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.fm===r.mode)));scheduleSave();}
+    return;
+  }
   const b=e.target.closest('[data-del]');if(!b)return;
   state.table=state.table.filter(x=>x.id!==(+b.dataset.del));
   renderTableRows();scheduleSave();
@@ -3457,19 +4105,21 @@ function generateFromTable(dir,dupMode){
   const toXY=(along,cross)=>dir==='h'?[along,cross]:[cross,along];
   let laneCross=curB?Math.ceil((dir==='h'?(curB.y+curB.h+70):(curB.x+curB.w+70))/10)*10:100;
   const startAlong=curB?Math.round((dir==='h'?curB.x:curB.y)/10)*10:60;
-  const touched=new Set();
+  const touched=new Set(),dupNums=[];   // dupNums: 同じ路線の中で番号が重なったもの（警告して、そのまま反映する）
   for(const key of order){
     const list=groups.get(key);
     const routeName=((list.find(r=>r.routeName&&r.routeName.trim())||{}).routeName||'').trim();
-    const rowMode=(list.find(r=>MODE_KEYS.includes(r.mode))||{}).mode||'';   // 路線表の「モード」（その路線の最初に指定した行）
-    const fac=lineFac({mode:rowMode||'mid'}),gapR=S.stGap*fac.gap;
+    const rowMode=(list.find(r=>MODE_KEYS.includes(r.mode))||{}).mode||'';   // 路線表の「モード」（その路線の最初に指定した行）。空欄は、いまのモード
+    const mkey=rowMode||(MODES[S.mode]?S.mode:'mid');
+    const vals=mkey===S.mode?curVals(S):modeStd(mkey);                        // 新しく作る路線・駅の大きさ（個別設定または、そのモードの標準値）
+    const kS=S.scale||1,mf=vals.mh/(S.stH/kS),gapR=vals.gap*kS;
     let routeLineId=null;
     let [cx,cy]=toXY(startAlong,laneCross),first=true,prevHalf=0;
     const pts=[],placed=[];
     for(const row of list){
       const name=row.station.trim();
       const ex=existingByName.get(name);
-      const curHalf=ex?supportAlong(ex,S,dir==='h'?1:0,dir==='h'?0:1):(row.hub?hubHalf*fac.marker:S.stW*fac.marker/2);
+      const curHalf=ex?supportAlong(ex,S,dir==='h'?1:0,dir==='h'?0:1):(row.hub?hubHalf*mf:vals.mw*kS/2);
       let tx,ty;
       if(ex){tx=ex.x;ty=ex.y;}
       else if(first){[tx,ty]=toXY(startAlong+curHalf,laneCross);}
@@ -3482,7 +4132,7 @@ function generateFromTable(dir,dupMode){
         if(Math.abs(ty-cy)>0.5&&Math.abs(tx-cx)>0.5)pts.push(dir==='h'?[tx,cy]:[cx,ty]);
         pts.push([tx,ty]);
       }
-      placed.push({name,x:tx,y:ty,hub:!!row.hub||!!ex,existing:!!ex});
+      placed.push({name,x:tx,y:ty,hub:!!row.hub||!!ex,existing:!!ex,num:(row.num||'').trim()});
       cx=tx;cy=ty;first=false;
     }
     const uniq=pts.filter((p,i)=>i===0||p[0]!==pts[i-1][0]||p[1]!==pts[i-1][1]);
@@ -3491,12 +4141,12 @@ function generateFromTable(dir,dupMode){
       const target=(dupMode==='overwrite'&&routeName)?state.lines.find(L=>(L.name||'').trim()===routeName&&!overwritten.has(L.id)):null;
       if(target){
         target.pts=uniq;target.name=routeName;target.dash=null;target.cross=null;
-        if(rowMode){target.mode=rowMode;target.k=null;}
+        if(rowMode){target.mode=rowMode;target.k=null;target.gap=vals.gap;target.width=vals.lw;}
         routeLineId=target.id;overwritten.add(target.id);touched.add('line:'+target.id);
       }else{
         const lineId=nid();
         routeLineId=lineId;
-        state.lines.push({id:lineId,mode:rowMode||'mid',k:null,z:nextZ(),pts:uniq,color:null,width:null,r:8,name:routeName,dash:null,cross:null,numShape:''});
+        state.lines.push({id:lineId,mode:mkey,k:null,gap:vals.gap,width:vals.lw,z:nextZ(),pts:uniq,color:null,r:8,name:routeName,dash:null,cross:null,numShape:''});
         touched.add('line:'+lineId);
       }
     }
@@ -3504,23 +4154,25 @@ function generateFromTable(dir,dupMode){
       if(p.existing){
         const ex=existingByName.get(p.name);
         if(p.hub&&ex.kind!=='hub'){ex.kind='hub';ex.lanesX=1;ex.lanesY=1;ex.alignX='center';ex.alignY='center';}
-        if(routeLineId!==null){ex.lineIds=ex.lineIds||[];if(!ex.lineIds.includes(routeLineId))ex.lineIds.push(routeLineId);}
+        if(routeLineId!==null){ex.lineIds=ex.lineIds||[];if(!ex.lineIds.includes(routeLineId))ex.lineIds.push(routeLineId);if(p.num){ex.nums=ex.nums||{};ex.nums[routeLineId]=p.num;}}
         touched.add('st:'+ex.id);
         continue;
       }
       const ang=dir==='h'?0:90;
-      const stObj={id:nid(),kind:p.hub?'hub':'st',x:p.x,y:p.y,ang,lanes:1,text:p.name,pos:'right',vert:false,autoLabel:true,align:'center',nums:{},lineIds:routeLineId!==null?[routeLineId]:[]};
+      const stObj={id:nid(),kind:p.hub?'hub':'st',x:p.x,y:p.y,ang,lanes:1,text:p.name,pos:'right',vert:false,autoLabel:true,align:'center',nums:(routeLineId!==null&&p.num)?{[routeLineId]:p.num}:{},lineIds:routeLineId!==null?[routeLineId]:[],mw:vals.mw,mh:vals.mh,fs:vals.fs};
       if(p.hub){stObj.lanesX=1;stObj.lanesY=1;stObj.alignX='center';stObj.alignY='center';}
       defaultsForAng(stObj);
       state.stations.push(stObj);
       existingByName.set(p.name,stObj);
       touched.add('st:'+stObj.id);
     }
-    laneCross+=LANE_Y*(S.stH/BASE_STD.stH)*(fac.marker<1?0.6:1);
+    {const seen=new Map();for(const q of placed){if(q.num)seen.set(q.num,(seen.get(q.num)||0)+1);}
+     for(const [n,c] of seen)if(c>1)dupNums.push((routeName||('路線'+key))+'の「'+n+'」');}
+    laneCross+=LANE_Y*(S.stH/BASE_STD.stH)*(mf<1?0.6:1);
   }
   sel=touched;selVi=-1;selSeg=null;selWhole=true;
   commit();(state.s.canvasFixed?fitContent:fit)();onSelChange();
-  toast(overwritten.size?'生成しました（'+overwritten.size+'本の路線を上書き。元に戻すにはCtrl+Z）':'生成しました（元に戻すにはCtrl+Z）');
+  toast((overwritten.size?'生成しました（'+overwritten.size+'本の路線を上書き。元に戻すにはCtrl+Z）':'生成しました（元に戻すにはCtrl+Z）')+(dupNums.length?'　駅番号が重複しています: '+dupNums.join('、')+'（そのまま反映しました）':''));
 }
 // 路線表の路線名が、すでにある路線と同じかどうか
 function tableDupNames(){
@@ -3568,12 +4220,12 @@ $$('.tool').forEach(b=>b.addEventListener('click',()=>setTool(b.dataset.tool)));
 function newBlank(fmt){
   curFile=null;
   const S=Object.assign({},state.s);
-  S.format=FORMATS[fmt]?fmt:'standard';S.grid=FORMATS[S.format].grid;applyScale(S);
+  S.format='standard';S.grid=FORMATS.standard.grid;S.mode='mid';S.cur=null;applyScale(S);   // 新規作成の初期モードは中距離
   state=fresh();state.s=S;
   state.s.canvasFixed=true;state.s.canvasW=1920;state.s.canvasH=1080;
   sel=new Set();selVi=-1;selSeg=null;selWhole=false;drawing=null;
   commit();fit();onSelChange();updateProjName();
-  toast('白紙を作成しました（'+FORMATS[S.format].name+'・台紙 1920×1080）');
+  toast('白紙を作成しました（中距離モード・台紙 1920×1080）');
 }
 function loadSample(){curFile=null;state=demoState();sel=new Set();selVi=-1;selSeg=null;selWhole=false;drawing=null;commit();fit();onSelChange();updateProjName();toast('サンプルを開きました');}
 
@@ -3664,6 +4316,8 @@ function runCmd(c){
     case 'redo':redo();break;
     case 'tool':setTool(a);break;
     case 'dup':duplicateSel();break;
+    case 'copy':copySel();break;
+    case 'paste':pasteClip();break;
     case 'selall':selectAll();break;
     case 'del':{
       if(!sel.size&&!(selVi>=0))break;
@@ -3674,6 +4328,7 @@ function runCmd(c){
       break;
     }
     case 'fit':fit();requestRender();break;
+    case 'legend':state.s.legend=state.s.legend===false;commit('legend');requestRender();toast(state.s.legend?'路線一覧を表示しました':'路線一覧を隠しました');break;
     case 'zin':zoomBy(1.25);break;
     case 'zout':zoomBy(0.8);break;
     case 'z100':zoomBy(1/view.k);break;
@@ -3699,19 +4354,20 @@ document.addEventListener('click',e=>{
 const MENUS=[
   {label:'ファイル',items:[
     {t:'保存',c:'save',k:'Ctrl+S'},{t:'履歴を含めて保存（直近30件）',c:'savehist',chk:()=>prefs.saveHistory},{t:'開く…',c:'open'},'-',
-    {t:'新規作成（白紙・標準）',c:'new:standard'},{t:'新規作成（白紙・路面電車向け）',c:'new:tram'},{t:'サンプルを選ぶ…',c:'samples'},'-',
+    {t:'新規作成（白紙）',c:'new:standard'},{t:'サンプルを選ぶ…',c:'samples'},'-',
     {t:'表から生成…',c:'table'},{t:'QRコードで転送…',c:'qr'},{t:'テキストで読込・コピー…',c:'data'},'-',
     {t:'出力…（PNG / SVG）',c:'export'}]},
   {label:'編集',items:[
     {t:'元に戻す',c:'undo',k:'Ctrl+Z',dis:()=>hist.i<=0},{t:'やり直し',c:'redo',k:'Ctrl+Shift+Z',dis:()=>hist.i>=hist.s.length-1},'-',
     {t:'選択',c:'tool:select',k:'V',chk:()=>tool==='select'},{t:'範囲選択',c:'tool:marquee',k:'M',chk:()=>tool==='marquee'},{t:'削除（クリックで消す）',c:'tool:erase',k:'E',chk:()=>tool==='erase'},{t:'移動（表示）',c:'tool:pan',chk:()=>tool==='pan'},'-',
-    {t:'複製',c:'dup',k:'Ctrl+D'},{t:'全選択',c:'selall',k:'Ctrl+A'},{t:'選択解除',c:'desel',k:'Esc'},{t:'選択を削除',c:'del',k:'Delete'}]},
+    {t:'コピー',c:'copy',k:'Ctrl+C'},{t:'貼り付け',c:'paste',k:'Ctrl+V'},{t:'複製',c:'dup',k:'Ctrl+D'},{t:'全選択',c:'selall',k:'Ctrl+A'},{t:'選択解除',c:'desel',k:'Esc'},{t:'選択を削除',c:'del',k:'Delete'}]},
   {label:'表示',items:[
     {t:'全体を表示',c:'fit',k:'0'},{t:'拡大',c:'zin',k:'+'},{t:'縮小',c:'zout',k:'-'},{t:'100%',c:'z100'},'-',
     {t:'作成ツール（左）',c:'vis:left',chk:()=>prefs.view.left!==false},
     {t:'オプション（右メニュー）',c:'vis:right',chk:()=>prefs.view.right!==false},
     {t:'操作ツールボックス（右下）',c:'vis:toolbox',chk:()=>prefs.view.toolbox!==false},
     {t:'ステータスバー（下）',c:'vis:status',chk:()=>prefs.view.status!==false},{t:'すべて表示',c:'vis:all'},'-',
+    {t:'路線一覧（キャンバスの左下・書き出しにも入る）',c:'legend',chk:()=>state.s.legend!==false},'-',
     {t:'UIの大きさ: 画面に合わせる',c:'ui:auto',chk:()=>prefs.uiScale==='auto'},{t:'UIの大きさ: 小さめ',c:'ui:s',chk:()=>prefs.uiScale==='s'},{t:'UIの大きさ: 標準',c:'ui:m',chk:()=>prefs.uiScale==='m'},{t:'UIの大きさ: 大きめ',c:'ui:l',chk:()=>prefs.uiScale==='l'},'-',
     {t:'テーマ: 自動',c:'theme:auto',chk:()=>prefs.theme==='auto'},{t:'テーマ: ライト',c:'theme:light',chk:()=>prefs.theme==='light'},{t:'テーマ: ダーク',c:'theme:dark',chk:()=>prefs.theme==='dark'}]},
   {label:'設定',items:[{t:'ボード設定…',c:'board'}]},
@@ -3809,7 +4465,7 @@ const qrTx={chunks:[],i:0,timer:0,play:true,build:null};
 async function qrStartSend(){
   clearTimeout(qrTx.timer);
   $('#qrStat').textContent='準備中…';
-  const b=await qrBuild(+$('#qrSize').value);
+  const b=await qrBuild(qrSegVal('qrSize'));
   qrTx.build=b;qrTx.chunks=b.chunks;qrTx.i=0;qrTx.play=true;
   $('#qrPlay').textContent='⏸ 停止';
   qrShow();qrSchedule();
@@ -3822,8 +4478,10 @@ function qrShow(){
 function qrSchedule(){
   clearTimeout(qrTx.timer);
   if(!qrTx.play||!dlgQ.open||!qrTx.chunks.length)return;
-  qrTx.timer=setTimeout(()=>{qrTx.i=(qrTx.i+1)%qrTx.chunks.length;qrShow();qrSchedule();},+$('#qrSpeed').value);
+  qrTx.timer=setTimeout(()=>{qrTx.i=(qrTx.i+1)%qrTx.chunks.length;qrShow();qrSchedule();},qrSegVal('qrSpeed'));
 }
+const qrSegVal=id=>{const b=document.querySelector('#'+id+' button[aria-pressed="true"]');return b?+b.dataset.v:0;};
+function qrSegBind(id,fn){const g=$('#'+id);g.addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b)return;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));fn();});}
 const qrRx={sid:'',n:0,crc:'',parts:new Map(),done:false,text:''};
 const QRRE=/^RZ1:([0-9A-Z]{4}):([0-9A-Z]+):([0-9A-Z]+):([0-9A-F]{8}):([\s\S]*)$/;
 const qrMsg=t=>{$('#qrRxMsg').textContent=t;};
@@ -3929,8 +4587,8 @@ $('#qrClose').addEventListener('click',()=>hideDlg(dlgQ));
 $('#qrPrev').addEventListener('click',()=>{if(!qrTx.chunks.length)return;qrTx.i=(qrTx.i-1+qrTx.chunks.length)%qrTx.chunks.length;qrShow();qrSchedule();});
 $('#qrNext').addEventListener('click',()=>{if(!qrTx.chunks.length)return;qrTx.i=(qrTx.i+1)%qrTx.chunks.length;qrShow();qrSchedule();});
 $('#qrPlay').addEventListener('click',()=>{qrTx.play=!qrTx.play;$('#qrPlay').textContent=qrTx.play?'⏸ 停止':'▶ 再生';qrShow();qrSchedule();});
-$('#qrSpeed').addEventListener('change',qrSchedule);
-$('#qrSize').addEventListener('change',qrStartSend);
+qrSegBind('qrSpeed',qrSchedule);
+qrSegBind('qrSize',qrStartSend);
 $('#qrCamBtn').addEventListener('click',qrCamStart);
 $('#qrShotBtn').addEventListener('click',()=>$('#qrFileShot').click());
 $('#qrPickBtn').addEventListener('click',()=>$('#qrFilePick').click());
@@ -4085,15 +4743,13 @@ const dlgB=$('#dlgBoard'),boardBody=$('#boardBody');
 function renderBoard(){
   const S=state.s,bp=(k,label,v)=>'<label class="chk"><input type="checkbox" data-bp="'+k+'"'+(v?' checked':'')+'> '+label+'</label>';
   let h='<section class="bsec"><h3>プロジェクト</h3><div class="row" style="grid-template-columns:96px 1fr"><label>プロジェクト名</label>'+inTxt('proj.name',state.name||'',{ph:'例: 牛尾川線'})+'</div><p class="note">ファイル名とは別に、JSONの中に保存されます。サンプルの一覧には、この名前が出ます。</p></section>';
-  h+='<section class="bsec"><h3>フォーマット</h3>'+inSeg('S.format',Object.keys(FORMATS).map(k=>[k,FORMATS[k].name]),S.format||'standard')
-    +'<p class="note">切り替えると、文字・駅・線の太さ・間隔の基準が変わります（置いた物の位置はそのままです）。路面電車など超近距離向けは、文字と駅を小さく、間隔を狭くしています。新しく作るときは「ファイル → 新規作成」からも選べます。</p></section>';
   h+='<section class="bsec"><h3>台紙サイズ</h3>'+inChk('S.canvasFixed',S.canvasFixed,'サイズを固定する')
     +(S.canvasFixed?'<div class="g2">'+fld('幅',inNum('S.canvasW',S.canvasW,{min:10}))+fld('高さ',inNum('S.canvasH',S.canvasH,{min:10}))+'</div>':'<p class="note">内容に合わせて自動的に決まります。</p>')
     +'<div class="presets">'+[['Full HD 1920×1080',1920,1080],['HD 1280×720',1280,720],['4K 3840×2160',3840,2160],['正方形 1080×1080',1080,1080]].map(q=>'<button type="button" class="mini" data-bsize="'+q[1]+'x'+q[2]+'">'+q[0]+'</button>').join('')+'</div>'
     +'<p class="note">固定すると、この範囲の外は書き出しで切れます。</p></section>';
-  h+='<section class="bsec"><h3>全体サイズ</h3><div class="row" style="grid-template-columns:96px 1fr"><label>サイズ (%)</label>'+inNum('S.scale',Math.round(S.scale*100),{min:20,max:500,step:5})+'</div><p class="note">選んだフォーマットの基準を、比率そのままに拡大縮小します。</p><div class="fonts"><span>英語</span><b style="font-family:Sen,sans-serif">Sen</b><span>日本語</span><b style="font-family:\'Sawarabi Gothic\',sans-serif">Sawarabi Gothic</b></div></section>';
-  h+='<section class="bsec"><h3>吸着・表示</h3>'+bp('snap','吸着する（Altを押しながら操作すると一時的に外せます）',snapOn)
-    +'<div class="row" style="grid-template-columns:96px 1fr"><label>グリッド (px)</label><select data-a="S.grid" data-t="n">'+[1,2.5,5,10,20].map(v=>'<option value="'+v+'"'+(S.grid===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'
+  h+='<section class="bsec"><h3>全体サイズ</h3><div class="row" style="grid-template-columns:96px 1fr"><label>サイズ (%)</label>'+inNum('S.scale',Math.round(S.scale*100),{min:20,max:500,step:5})+'</div><p class="note">駅・線・文字の基準の大きさを、比率そのままに拡大縮小します。</p><div class="fonts"><span>英語</span><b style="font-family:Sen,sans-serif">Sen</b><span>日本語</span><b style="font-family:\'Sawarabi Gothic\',sans-serif">Sawarabi Gothic</b></div></section>';
+  h+='<section class="bsec"><h3>吸着・表示</h3>'+bp('snap','吸着する（路線を引く・駅を置くときは、Altを押している間だけ外せます）',snapOn)
+    +'<div class="row gridrow"><label>グリッド (px)</label>'+inSeg('S.grid',[[1,'1'],[2.5,'2.5'],[5,'5'],[10,'10'],[20,'20']],S.grid,true)+'</div>'
     +bp('showGrid','グリッド表示（標準駅間隔の40pxを基準に線で表示。半分の20pxは薄く表示。路線モードでは変わりません）',prefs.showGrid)
     +bp('showGuides','ガイド表示（吸着したとき、他の駅や線とそろうと赤い線を出す）',prefs.showGuides)+'</section>';
   h+='<section class="bsec"><h3>背景色</h3><div class="row"><label>色</label>'+inCol('S.bg',S.bg)+'</div>'+swatchRow('S.bg',S.bg)+inChk('S.transparent',S.transparent,'透明にする（書き出し時）')+'</section>';
@@ -4147,7 +4803,7 @@ cv.addEventListener('wheel',onWheel,{passive:false});
 
 /* ================= init ================= */
 (function init(){
-  try{const p=JSON.parse(lsGet(LS_PREF)||'null');if(p){prefs.scale=[1,2,3,4].includes(p.scale)?p.scale:2;prefs.fmt=p.fmt==='svg'?'svg':'png';prefs.lanes=(Number.isInteger(p.lanes)&&p.lanes>=1&&p.lanes<=MAXL)?p.lanes:1;prefs.manualLanes=!!p.manualLanes;prefs.hubX=(Number.isInteger(p.hubX)&&p.hubX>=1&&p.hubX<=MAXL)?p.hubX:1;prefs.hubY=(Number.isInteger(p.hubY)&&p.hubY>=1&&p.hubY<=MAXL)?p.hubY:1;prefs.align=['center','start','end'].includes(p.align)?p.align:'center';snapOn=p.snap!==false;prefs.saveHistory=p.saveHistory!==false;prefs.uiScale=['auto','s','m','l'].includes(p.uiScale)?p.uiScale:'auto';prefs.sideH=(Number.isFinite(p.sideH)&&p.sideH>=24&&p.sideH<=88)?p.sideH:54;prefs.member=p.member==='near'?'near':'none';prefs.showGrid=p.showGrid!==false;prefs.showGuides=p.showGuides!==false;prefs.theme=['auto','light','dark'].includes(p.theme)?p.theme:'auto';if(p.view&&typeof p.view==='object')prefs.view=Object.assign({left:true,right:true,toolbox:true,status:true},p.view);}}catch(_){}
+  try{const p=JSON.parse(lsGet(LS_PREF)||'null');if(p){prefs.scale=[1,2,3,4].includes(p.scale)?p.scale:2;prefs.fmt=p.fmt==='svg'?'svg':'png';prefs.lanes=(Number.isInteger(p.lanes)&&p.lanes>=1&&p.lanes<=MAXL)?p.lanes:1;prefs.manualLanes=!!p.manualLanes;prefs.hubX=(Number.isInteger(p.hubX)&&p.hubX>=1&&p.hubX<=MAXL)?p.hubX:1;prefs.hubY=(Number.isInteger(p.hubY)&&p.hubY>=1&&p.hubY<=MAXL)?p.hubY:1;prefs.align=['center','start','end'].includes(p.align)?p.align:'center';snapOn=p.snap!==false;prefs.saveHistory=p.saveHistory!==false;prefs.uiScale=['auto','s','m','l'].includes(p.uiScale)?p.uiScale:'auto';prefs.sideH=(Number.isFinite(p.sideH)&&p.sideH>=24&&p.sideH<=88)?p.sideH:54;prefs.expRange=p.expRange==='all'?'all':'board';prefs.member=p.member==='near'?'near':'none';prefs.showGrid=p.showGrid!==false;prefs.showGuides=p.showGuides!==false;prefs.theme=['auto','light','dark'].includes(p.theme)?p.theme:'auto';if(p.view&&typeof p.view==='object')prefs.view=Object.assign({left:true,right:true,toolbox:true,status:true},p.view);}}catch(_){}
   const saved=lsGet(LS_KEY);
   let st=null;
   if(saved){try{st=normalize(JSON.parse(saved));if(!st.lines.length&&!st.stations.length&&!st.texts.length)st=st;}catch(_){st=null;}}
@@ -4168,7 +4824,7 @@ cv.addEventListener('wheel',onWheel,{passive:false});
   resize();fit();
   setTool('select');renderInspector();updateUndo();requestRender();
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{mcache.clear();calcCap();requestRender();}).catch(()=>{});
-  if(window.__RZ_TEST)window.__rz={get state(){return state;},get sel(){return sel;},get view(){return view;},render,build,bounds,exportCanvas,toSVG,snapStation,setTool,hitTest,fit,commit,undo,redo,measure,get capC(){return capC;},effectivePos,lineTags,lineNameSpots,numberBadges,stationLineColor,stationLanePoints,geom,snapLinePoint,changeLanes,changeHubLanes,anchorOffset,computeCrossings,stationLines,numEntries,numMode,latticeT,polyInfo,polyProject,polyAt,laneGuides,laneSnapPoint,hubLanes,applyScale,generateFromTable,startGenerate,tableDupNames,hitAll,listSampleFiles,get curFile(){return curFile;},placeAbove,reorderLine,lineOrder,avoidOverlap,lineFac,SS,get hist(){return hist;},normalize,startFromFolder,loadManifest,normManifest,openSamples,demoState,loadJSON,runCmd,qrBuild,qrDraw,qrFeed,qrRx,b45enc,b45dec,crc32,openQR,labelBBox,get prefs(){return prefs;},openBoard,newBlank,setGuides,get guides(){return guides;}};
+  if(window.__RZ_TEST)window.__rz={get state(){return state;},get sel(){return sel;},get view(){return view;},render,build,bounds,exportCanvas,toSVG,snapStation,setTool,hitTest,fit,commit,undo,redo,measure,get capC(){return capC;},effectivePos,lineTags,lineNameSpots,numberBadges,stationLineColor,stationLanePoints,geom,snapLinePoint,changeLanes,changeHubLanes,anchorOffset,computeCrossings,stationLines,numEntries,numMode,latticeT,polyInfo,polyProject,polyAt,laneGuides,laneSnapPoint,hubLanes,applyScale,generateFromTable,startGenerate,tableDupNames,hitAll,onSelChange,revealSel,listCrossings,segCrossings,pruneCx,get altCands(){return altCands;},exportBounds,exportSVGText,ensureFonts,get clipboard(){return clipboard;},get prefs(){return prefs;},listSampleFiles,get qrTx(){return qrTx;},get curFile(){return curFile;},placeAbove,reorderLine,lineOrder,avoidOverlap,lineGap,lineW,curVals,modeStd,MODES,MODE_KEYS,SS,get hist(){return hist;},normalize,startFromFolder,loadManifest,normManifest,openSamples,demoState,loadJSON,runCmd,qrBuild,qrDraw,qrFeed,qrRx,b45enc,b45dec,crc32,openQR,labelBBox,get prefs(){return prefs;},openBoard,newBlank,setGuides,get guides(){return guides;}};
   if(needStart)startFromFolder();
 })();
 
